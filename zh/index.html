@@ -68,16 +68,26 @@
             background: #fff;
         }
         .masonry-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-auto-rows: 10px;
-            gap: 0;
+            column-count: 3;
+            column-gap: 24px;
+        }
+        @media (max-width: 1024px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (max-width: 640px) {
+            .masonry-grid { column-count: 1; }
         }
         .card {
             break-inside: avoid;
             margin-bottom: 24px;
+            display: block;
         }
-        .card-small { grid-row: span 8; }
+        .card-small, .card-medium, .card-large, .card-full {
+            grid-row: auto;
+        }
+        .card-full {
+            column-span: all;
+        }
         .card-medium { grid-row: span 12; }
         .card-large { grid-row: span 16; }
         .card-full { grid-column: 1 / -1; grid-row: span 10; }
@@ -162,7 +172,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-sm">@openclaw-lover</span>
-                        <a href="/zh/case/book-writing-agents.html" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
+                        <a href="/OpenClaw-Hunt/zh/case/book-writing-agents.html" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
                             阅读 →
                         </a>
                     </div>
@@ -183,7 +193,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@velvetshark</span>
-                        <a href="/zh/case/daily-briefing.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                        <a href="/OpenClaw-Hunt/zh/case/daily-briefing.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
                     </div>
                 </article>
 
@@ -216,7 +226,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">Jesse Genet</span>
-                        <a href="/zh/case/homeschool-agents.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                        <a href="/OpenClaw-Hunt/zh/case/homeschool-agents.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
                     </div>
                 </article>
 
@@ -256,7 +266,7 @@
                     </div>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-sm">罗马尼亚小企业主</span>
-                        <a href="/zh/case/shopify-shipping.html" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
+                        <a href="/OpenClaw-Hunt/zh/case/shopify-shipping.html" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
                             阅读 →
                         </a>
                     </div>
