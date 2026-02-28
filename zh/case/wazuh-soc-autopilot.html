@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>用 AI 代理写了一本书 — OpenClaw Hunt</title>
+    <title>Wazuh 安全运营中心自动化 — OpenClaw Hunt</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -36,7 +36,7 @@
             <a href="/zh/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
             <div class="flex items-center gap-3">
                 <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
-                <a href="/case/book-writing-agents.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
+                <a href="/case/wazuh-soc-autopilot.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
             </div>
         </div>
     </header>
@@ -44,31 +44,36 @@
     <main class="px-6 py-12">
         <div class="max-w-3xl mx-auto">
             <div class="mb-8">
-                <span class="font-mono text-sm text-wild border-2 border-current px-3 py-1 inline-block mb-4">🦞 野生</span>
-                <h1 class="font-display text-4xl font-bold mb-4">用 AI 代理写了一本书</h1>
+                <span class="font-mono text-sm text-deep border-2 border-current px-3 py-1 inline-block mb-4">🕳️ 深坑</span>
+                <h1 class="font-display text-4xl font-bold mb-4">Wazuh 安全运营中心自动化</h1>
                 <div class="flex gap-4 font-mono text-sm text-muted">
-                    <span>@openclaw-lover</span>
+                    <span>@gensecaihq</span>
                     <span>·</span>
                     <span>2026-02-28</span>
                     <span>·</span>
-                    <span>Reddit r/clawdbot</span>
+                    <span>GitHub</span>
                 </div>
             </div>
 
             <article class="prose prose-lg max-w-none">
-                <p class="mb-4 leading-relaxed">搭建了一个自主多代理系统，读取 OpenClaw 源码仓库，从网络收集信息，写了一本关于这个平台的完整书籍。初始提示之后零人工干预。</p>
-<p class="mb-4 leading-relaxed">用户创建了多个专业代理：</p>
-<p class="mb-4 leading-relaxed">- <strong>书籍长度</strong>: 200+ 页
-- <strong>时间</strong>: 48 小时自主工作
-- <strong>人工干预</strong>: 仅初始提示
-- <strong>质量</strong>: 社区评价为" surprisingly comprehensive"</p>
-<p class="mb-4 leading-relaxed">Reddit 用户 u/openclaw-lover 在 r/clawdbot 分享：</p>
-<p class="mb-4 leading-relaxed">- <a href="https://github.com/chunhualiao/openclaw-paradigm-book" class="border-b-2 border-ink">GitHub 仓库</a>
-- <a href="https://www.reddit.com/r/clawdbot/" class="border-b-2 border-ink">Reddit 讨论</a></p>
+                <p class="mb-4 leading-relaxed">使用 OpenClaw 代理和 MCP 为 Wazuh 打造的自主 SOC（安全运营中心）层。自动分类警报、关联事件、生成响应计划，并保留人工审批环节。</p>
+<p class="mb-4 leading-relaxed">- <strong>自动分类警报</strong> - 自动分类和优先处理安全警报
+- <strong>事件关联</strong> - 跨基础设施连接相关安全事件
+- <strong>生成响应计划</strong> - 自动创建可执行的响应计划
+- <strong>人工审批</strong> - 执行关键操作前需要人工批准
+- <strong>证据包</strong> - 收集和整理调查证据
+- <strong>Prometheus 指标</strong> - 导出安全指标用于监控
+- <strong>Slack 集成</strong> - 通过 Slack 通知安全团队</p>
+<p class="mb-4 leading-relaxed">- Wazuh（安全监控）
+- OpenClaw（AI 代理编排）
+- MCP（模型上下文协议）
+- Prometheus（指标）
+- Slack API（通知）</p>
+<p class="mb-4 leading-relaxed">安全团队可以通过 OpenClaw 代理处理常规分类和初步调查来减少警报疲劳，只将复杂问题升级给人工分析师。</p>
             </article>
 
             <div class="mt-12 pt-8 border-t-2 border-ink">
-                <a href="/case/book-writing-agents.html" class="font-mono text-lg border-b-2 border-ink">
+                <a href="/case/wazuh-soc-autopilot.html" class="font-mono text-lg border-b-2 border-ink">
                     Read in English →
                 </a>
             </div>
