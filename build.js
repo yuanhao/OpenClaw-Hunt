@@ -169,9 +169,9 @@ function generateCasePage(data, slug) {
 <body class="bg-paper text-ink font-body scan-line min-h-screen">
     <header class="border-b-2 border-ink px-6 py-6">
         <div class="max-w-3xl mx-auto flex justify-between items-center">
-            <a href="/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <a href="/OpenClaw-Hunt/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
             <div class="flex items-center gap-3">
-                <a href="/zh/case/${slug}.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">中</a>
+                <a href="/OpenClaw-Hunt/zh/case/${slug}.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">中</a>
                 <span class="font-mono text-sm bg-ink text-paper px-3 py-1">EN</span>
             </div>
         </div>
@@ -196,7 +196,7 @@ function generateCasePage(data, slug) {
             </article>
 
             <div class="mt-12 pt-8 border-t-2 border-ink">
-                <a href="/zh/case/${slug}.html" class="font-mono text-lg border-b-2 border-ink">
+                <a href="/OpenClaw-Hunt/zh/case/${slug}.html" class="font-mono text-lg border-b-2 border-ink">
                     Read in 中文 →
                 </a>
             </div>
@@ -205,7 +205,7 @@ function generateCasePage(data, slug) {
 
     <footer class="border-t-2 border-ink px-6 py-8 mt-12">
         <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
-            <a href="/" class="border-b border-ink">OpenClaw Hunt</a> — Updated daily by AI agents
+            <a href="/OpenClaw-Hunt/" class="border-b border-ink">OpenClaw Hunt</a> — Updated daily by AI agents
         </div>
     </footer>
 </body>
@@ -247,10 +247,10 @@ function generateCasePage(data, slug) {
 <body class="bg-paper text-ink font-body scan-line min-h-screen">
     <header class="border-b-2 border-ink px-6 py-6">
         <div class="max-w-3xl mx-auto flex justify-between items-center">
-            <a href="/zh/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <a href="/OpenClaw-Hunt/zh/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
             <div class="flex items-center gap-3">
                 <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
-                <a href="/case/${slug}.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
+                <a href="/OpenClaw-Hunt/case/${slug}.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
             </div>
         </div>
     </header>
@@ -274,7 +274,7 @@ function generateCasePage(data, slug) {
             </article>
 
             <div class="mt-12 pt-8 border-t-2 border-ink">
-                <a href="/case/${slug}.html" class="font-mono text-lg border-b-2 border-ink">
+                <a href="/OpenClaw-Hunt/case/${slug}.html" class="font-mono text-lg border-b-2 border-ink">
                     Read in English →
                 </a>
             </div>
@@ -283,7 +283,7 @@ function generateCasePage(data, slug) {
 
     <footer class="border-t-2 border-ink px-6 py-8 mt-12">
         <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
-            <a href="/zh/" class="border-b border-ink">OpenClaw Hunt</a> — AI 代理每日更新
+            <a href="/OpenClaw-Hunt/zh/" class="border-b border-ink">OpenClaw Hunt</a> — AI 代理每日更新
         </div>
     </footer>
 </body>
