@@ -58,17 +58,8 @@
             <article class="prose prose-lg max-w-none">
                 <p class="mb-4 leading-relaxed">使用 OpenClaw 的 Lobster 工作流引擎和新贡献的循环支持，实现完全确定性的代码→审查→测试流水线。</p>
 <p class="mb-4 leading-relaxed">传统的多代理系统依赖 LLM 决定下一步做什么。这导致：
-- 非确定性行为
-- 难以调试
-- 不可预测的成本
-- 难以复现问题</p>
-<p class="mb-4 leading-relaxed">- <strong>确定性路由</strong> - YAML 控制流程，不是 LLM
-- <strong>代理间消息传递</strong> - <code>sessions_send</code> 实现可靠通信
-- <strong>会话键作为地址</strong> - <code>pipeline:<project>:<role></code></p>
-<p class="mb-4 leading-relaxed">- 可预测的执行
-- 可复现的构建
-- 更低的 token 成本
-- 更容易调试</p>
+<ul class="list-disc ml-6 mb-4"><li class="mb-1">非确定性行为</li><li class="mb-1">难以调试</li><li class="mb-1">不可预测的成本</li><li class="mb-1">难以复现问题</li></ul>
+<h2 class="font-display text-2xl font-bold mb-4 mt-8">解决方案：YAML 状态机</h2></p>
 <p class="mb-4 leading-relaxed">Gustavo Gondim，DEV Community，2026年2月23日。</p>
             </article>
 

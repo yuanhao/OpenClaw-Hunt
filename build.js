@@ -66,27 +66,57 @@ function parseMarkdown(content) {
 function markdownToHTML(md) {
     let html = md
         // Headers
-        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-        .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+        .replace(/^### (.+)$/gm, '<h3 class="font-display text-xl font-bold mb-3 mt-6">$1</h3>')
+        .replace(/^## (.+)$/gm, '<h2 class="font-display text-2xl font-bold mb-4 mt-8">$1</h2>')
+        .replace(/^# (.+)$/gm, '<h1 class="font-display text-3xl font-bold mb-4">$1</h1>')
         // Bold
         .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
         // Italic
         .replace(/\*(.+?)\*/g, '<em>$1</em>')
         // Code blocks
-        .replace(/```(\w+)?\n([\s\S]+?)```/g, '<pre><code>$2</code></pre>')
+        .replace(/```(\w+)?\n([\s\S]+?)```/g, '<pre class="bg-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>$2</code></pre>')
         // Inline code
-        .replace(/`(.+?)`/g, '<code>$1</code>')
+        .replace(/`(.+?)`/g, '<code class="bg-gray-100 px-1 py-0.5 rounded text-sm">$1</code>')
         // Blockquotes
-        .replace(/^\u003e (.+)$/gm, '<blockquote>$1</blockquote>')
+        .replace(/^\u003e (.+)$/gm, '<blockquote class="border-l-4 border-ink pl-4 italic mb-4">$1</blockquote>')
         // Links
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="border-b-2 border-ink">$1</a>')
-        // Lists
-        .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
-        // Paragraphs
-        .split('\n\n')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="border-b-2 border-ink">$1</a>');
+    
+    // Handle tables
+    html = html.replace(/(\|[^\n]+\|\n\|[-:\|\s]+\|\n(?:\|[^\n]+\|\n?)+)/g, (match) => {
+        const lines = match.trim().split('\n').filter(l => l.trim());
+        if (lines.length < 2) return match;
+        
+        // Skip separator line (second line)
+        const dataLines = lines.filter((_, i) => i !== 1);
+        
+        let tableHTML = '<table class="w-full border-collapse mb-6"><tbody>';
+        
+        dataLines.forEach((line, rowIndex) => {
+            const cells = line.split('|').filter(c => c.trim());
+            const tag = rowIndex === 0 ? 'th' : 'td';
+            const cellClass = rowIndex === 0 
+                ? 'border-b-2 border-ink py-2 px-3 text-left font-bold' 
+                : 'border-b border-gray-300 py-2 px-3';
+            
+            tableHTML += `<tr>${cells.map(c => `<${tag} class="${cellClass}">${c.trim()}</${tag}>`).join('')}</tr>`;
+        });
+        
+        tableHTML += '</tbody></table>';
+        return tableHTML;
+    });
+    
+    // Lists (handle after tables)
+    html = html.replace(/^\d+\. (.+)$/gm, '<li class="ml-4 mb-1">$1</li>');
+    html = html.replace(/(- .+\n?)+/g, (match) => {
+        const items = match.trim().split('\n').filter(l => l.trim());
+        return '<ul class="list-disc ml-6 mb-4">' + items.map(i => `<li class="mb-1">${i.replace(/^- /, '')}</li>`).join('') + '</ul>';
+    });
+    
+    // Paragraphs (handle last)
+    html = html.split('\n\n')
         .map(p => p.trim())
-        .filter(p => p && !p.startsWith('<'))
+        .filter(p => p && !p.startsWith('<') && !p.includes('<table'))
         .map(p => `<p class="mb-4 leading-relaxed">${p}</p>`)
         .join('\n');
     
