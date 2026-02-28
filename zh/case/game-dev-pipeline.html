@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自主游戏开发流水线 — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'Noto Sans SC', 'sans-serif'],
+                        'body': ['Inter', 'Noto Sans SC', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/zh/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
+                <a href="/OpenClaw-Hunt/case/game-dev-pipeline.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-wild border-2 border-current px-3 py-1 inline-block mb-4">🦞 野生</span>
+                <h1 class="font-display text-4xl font-bold mb-4">自主游戏开发流水线</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>@hesamsheikh</span>
+                    <span>·</span>
+                    <span>2026-02-28</span>
+                    <span>·</span>
+                    <span>GitHub</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <p class="mb-4 leading-relaxed">教育游戏开发的完整生命周期管理——从待办事项选择到实现、注册、文档和 git 提交。</p>
+<p class="mb-4 leading-relaxed">- <strong>"Bug 优先"政策</strong> - 强制在添加功能前修复 bug
+- <strong>自主决策</strong> - 代理从待办列表中选择任务
+- <strong>自文档化</strong> - 自动生成文档
+- <strong>Git 集成</strong> - 提交有意义的代码</p>
+<p class="mb-4 leading-relaxed">- 无需人工干预的持续进展
+- 通过自动化标准保持一致的代码质量
+- 所有变更的完整审计跟踪</p>
+<p class="mb-4 leading-relaxed">awesome-openclaw-usecases 集合的一部分。</p>
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/case/game-dev-pipeline.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in English →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/zh/" class="border-b border-ink">OpenClaw Hunt</a> — AI 代理每日更新
+        </div>
+    </footer>
+</body>
+</html>
