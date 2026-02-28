@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容采集引擎 — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'Noto Sans SC', 'sans-serif'],
+                        'body': ['Inter', 'Noto Sans SC', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/zh/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
+                <a href="/OpenClaw-Hunt/case/content-sourcing-engine.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-flash border-2 border-current px-3 py-1 inline-block mb-4">⚡ 闪电</span>
+                <h1 class="font-display text-4xl font-bold mb-4">内容采集引擎</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>@dhruvkar</span>
+                    <span>·</span>
+                    <span>2026-02-28</span>
+                    <span>·</span>
+                    <span>LinkedIn Showcase</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <p class="mb-4 leading-relaxed">跨 Reddit、GitHub、YouTube、Discord 和博客的自动化新闻通讯研究，多源聚合。</p>
+<p class="mb-4 leading-relaxed">- <strong>Reddit</strong> - 子版块监控、热门讨论
+- <strong>GitHub</strong> - 新仓库、热门项目
+- <strong>YouTube</strong> - 订阅频道的新视频
+- <strong>Discord</strong> - 社区讨论、公告
+- <strong>博客</strong> - RSS 订阅、技术博客、新闻通讯</p>
+<p class="mb-4 leading-relaxed">- 精选内容摘要
+- 自动按主题分类
+- 可编辑的新闻通讯草稿
+- 跨平台发布就绪</p>
+<p class="mb-4 leading-relaxed">- <strong>手动研究</strong>: 每天 4-6 小时
+- <strong>使用 OpenClaw</strong>: 15 分钟审查
+- <strong>净节省</strong>: 90%+ 时间减少</p>
+<p class="mb-4 leading-relaxed">Dhruv Kar LinkedIn 展示 - 2026年2月。</p>
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/case/content-sourcing-engine.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in English →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/zh/" class="border-b border-ink">OpenClaw Hunt</a> — AI 代理每日更新
+        </div>
+    </footer>
+</body>
+</html>
