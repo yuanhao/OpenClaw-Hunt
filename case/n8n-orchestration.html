@@ -56,8 +56,38 @@
             </div>
 
             <article class="prose prose-lg max-w-none">
-                <p class="mb-4 leading-relaxed">Combine OpenClaw as the conversational "brain" with n8n as the deterministic "execution engine."</p>
-<p class="mb-4 leading-relaxed">Community resource: <code class="bg-gray-100 px-1 py-0.5 rounded text-sm">caprihan/openclaw-n8n-stack</code> <ul class="list-disc ml-6 mb-4"><li class="mb-1">Complete Docker Compose setup.</li></ul></p>
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">n8n Workflow Orchestration</h1>
+<p class="mb-4 leading-relaxed">Combine OpenClaw as the conversational &quot;brain&quot; with n8n as the deterministic &quot;execution engine.&quot;</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">The Stack</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>OpenClaw</strong> - Conversational AI, decision making, natural language understanding</li>
+<li class="mb-1"><strong>n8n</strong> - 400+ app integrations, visual workflow builder, approval gates</li>
+<li class="mb-1"><strong>Webhooks</strong> - Secure communication between OpenClaw and n8n</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">How It Works</h2>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1">User asks OpenClaw to perform a complex task</li>
+<li class="mb-1">OpenClaw breaks it down and calls n8n webhooks</li>
+<li class="mb-1">n8n executes the workflow with proper credentials</li>
+<li class="mb-1">Results return to OpenClaw for user-friendly response</li>
+</ol>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Benefits</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>Security</strong> - Credentials stay in n8n, never exposed to LLM</li>
+<li class="mb-1"><strong>Reliability</strong> - Deterministic execution, error handling, retries</li>
+<li class="mb-1"><strong>Auditability</strong> - Full workflow visualization in n8n</li>
+<li class="mb-1"><strong>Self-healing</strong> - Built-in error recovery and notifications</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Example Workflows</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">CRM updates across Salesforce, HubSpot, and custom APIs</li>
+<li class="mb-1">Multi-step approval processes with human-in-the-loop</li>
+<li class="mb-1">Data synchronization between 5+ different services</li>
+<li class="mb-1">Automated reporting with scheduled execution</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Source</h2>
+<p class="mb-4 leading-relaxed">Community resource: <code class="font-mono text-sm">caprihan/openclaw-n8n-stack</code> - Complete Docker Compose setup.</p>
+
             </article>
 
             <div class="mt-12 pt-8 border-t-2 border-ink">

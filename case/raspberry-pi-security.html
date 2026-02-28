@@ -56,8 +56,56 @@
             </div>
 
             <article class="prose prose-lg max-w-none">
-                <p class="mb-4 leading-relaxed">Running OpenClaw on Raspberry Pi 5 for 24/7 autonomous security operations with production-grade hardening.</p>
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">Raspberry Pi 5 Security Operations</h1>
+<p class="mb-4 leading-relaxed">Running OpenClaw on Raspberry Pi 5 for 24/7 autonomous security operations with production-grade hardening.</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Hardware Setup</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>Raspberry Pi 5</strong> - 8GB RAM model</li>
+<li class="mb-1"><strong>SSD storage</strong> - Reliable, fast I/O</li>
+<li class="mb-1"><strong>UPS backup</strong> - Power continuity</li>
+<li class="mb-1"><strong>Network isolation</strong> - VLAN segmentation</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Security Hardening</h2>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Sandboxed Execution</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">All agent operations run in isolated containers</li>
+<li class="mb-1">Filesystem restrictions prevent unauthorized access</li>
+<li class="mb-1">Network policies limit outbound connections</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Explicit Exec Approvals</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Dangerous operations require human confirmation</li>
+<li class="mb-1">Configurable risk tolerance per command type</li>
+<li class="mb-1">Audit trail of all approvals</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Memory Management</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Automatic compaction at 800k tokens</li>
+<li class="mb-1">Prevents context overflow attacks</li>
+<li class="mb-1">Monitors memory usage patterns</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Audit Logging</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">All agent actions logged</li>
+<li class="mb-1">Immutable log storage</li>
+<li class="mb-1">Real-time alerting on anomalies</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Use Cases</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>Vulnerability scanning</strong> - Automated network and web app scanning</li>
+<li class="mb-1"><strong>Threat monitoring</strong> - 24/7 log analysis and alerting</li>
+<li class="mb-1"><strong>Incident response</strong> - Automated containment workflows</li>
+<li class="mb-1"><strong>Security reporting</strong> - Daily/weekly security briefings</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Cost Benefits</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>Hardware</strong>: ~$100 one-time</li>
+<li class="mb-1"><strong>Power</strong>: ~$5/year</li>
+<li class="mb-1"><strong>Compared to cloud</strong>: 90% cost reduction for always-on operations</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Source</h2>
 <p class="mb-4 leading-relaxed">Simon Roses, VULNEX Security. Production deployment guide for OpenClaw on ARM devices.</p>
+
             </article>
 
             <div class="mt-12 pt-8 border-t-2 border-ink">

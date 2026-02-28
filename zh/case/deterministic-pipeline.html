@@ -56,11 +56,55 @@
             </div>
 
             <article class="prose prose-lg max-w-none">
-                <p class="mb-4 leading-relaxed">使用 OpenClaw 的 Lobster 工作流引擎和新贡献的循环支持，实现完全确定性的代码→审查→测试流水线。</p>
-<p class="mb-4 leading-relaxed">传统的多代理系统依赖 LLM 决定下一步做什么。这导致：
-<ul class="list-disc ml-6 mb-4"><li class="mb-1">非确定性行为</li><li class="mb-1">难以调试</li><li class="mb-1">不可预测的成本</li><li class="mb-1">难以复现问题</li></ul>
-<h2 class="font-display text-2xl font-bold mb-4 mt-8">解决方案：YAML 状态机</h2></p>
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">确定性多代理开发流水线</h1>
+<p class="mb-4 leading-relaxed">使用 OpenClaw 的 Lobster 工作流引擎和新贡献的循环支持，实现完全确定性的代码→审查→测试流水线。</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">LLM 编排的问题</h2>
+<p class="mb-4 leading-relaxed">传统的多代理系统依赖 LLM 决定下一步做什么。这导致：</p>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">非确定性行为</li>
+<li class="mb-1">难以调试</li>
+<li class="mb-1">不可预测的成本</li>
+<li class="mb-1">难以复现问题</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">解决方案：YAML 状态机</h2>
+<pre class="bg-gray-100 p-4 rounded mb-4 overflow-x-auto"><code class="language-yaml">workflow:
+  steps:
+    - name: code
+      agent: programmer
+      output: code_result
+    - name: review
+      agent: reviewer
+      input: code_result
+      output: review_result
+    - name: test
+      agent: tester
+      input: review_result
+      loop: until_pass
+</code></pre>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">关键创新</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>确定性路由</strong> - YAML 控制流程，不是 LLM</li>
+<li class="mb-1"><strong>代理间消息传递</strong> - <code class="font-mono text-sm">sessions_send</code> 实现可靠通信</li>
+<li class="mb-1"><strong>会话键作为地址</strong> - <code class="font-mono text-sm">pipeline:&lt;project&gt;:&lt;role&gt;</code></li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">工作流</h2>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1"><strong>程序员代理</strong> - 根据需求编写代码</li>
+<li class="mb-1"><strong>审查员代理</strong> - 审查代码质量和 bug</li>
+<li class="mb-1"><strong>测试员代理</strong> - 运行测试，报告结果</li>
+<li class="mb-1"><strong>循环直到通过</strong> - 如果测试失败则循环回去</li>
+</ol>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">结果</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">可预测的执行</li>
+<li class="mb-1">可复现的构建</li>
+<li class="mb-1">更低的 token 成本</li>
+<li class="mb-1">更容易调试</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">来源</h2>
 <p class="mb-4 leading-relaxed">Gustavo Gondim，DEV Community，2026年2月23日。</p>
+<p class="mb-4 leading-relaxed"><strong>名言：</strong> &quot;不要用 LLM 编排。让它们做创造性工作，用代码做管道。&quot;</p>
+
             </article>
 
             <div class="mt-12 pt-8 border-t-2 border-ink">
