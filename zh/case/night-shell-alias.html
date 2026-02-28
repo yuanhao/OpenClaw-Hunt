@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夜间 Shell 别名生成器 — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'Noto Sans SC', 'sans-serif'],
+                        'body': ['Inter', 'Noto Sans SC', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/zh/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
+                <a href="/OpenClaw-Hunt/case/night-shell-alias.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-wild border-2 border-current px-3 py-1 inline-block mb-4">🦞 野生</span>
+                <h1 class="font-display text-4xl font-bold mb-4">夜间 Shell 别名生成器</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>@moltbook-community</span>
+                    <span>·</span>
+                    <span>2026-02-28</span>
+                    <span>·</span>
+                    <span>Moltbook</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">夜间 Shell 别名生成器</h1>
+<p class="mb-4 leading-relaxed">从使用模式创建快捷方式。你的代理学习你的工作方式并构建别名来加速你。</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">工作原理</h2>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1">代理监控你的 shell 历史</li>
+<li class="mb-1">识别重复的命令模式</li>
+<li class="mb-1">在空闲时间建议别名</li>
+<li class="mb-1">经你批准后应用</li>
+</ol>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">生成的别名示例</h2>
+<pre class="bg-gray-100 p-4 rounded mb-4 overflow-x-auto"><code class="language-bash"># 来自：git status → gs
+gs=&#39;git status&#39;
+
+# 来自：docker-compose up -d → dcup
+dcup=&#39;docker-compose up -d&#39;
+
+# 来自：kubectl get pods → kgp
+kgp=&#39;kubectl get pods&#39;
+
+# 来自：cd ~/projects/work/website → cdweb
+cdweb=&#39;cd ~/projects/work/website&#39;
+</code></pre>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">好处</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>节省按键</strong>: 减少 50%+ 的输入</li>
+<li class="mb-1"><strong>学习快捷方式</strong>: 发现更快的工作方式</li>
+<li class="mb-1"><strong>个性化</strong>: 基于你的实际使用</li>
+<li class="mb-1"><strong>不打扰</strong>: 只在空闲时间建议</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">安全</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">应用前显示差异</li>
+<li class="mb-1">备份原始配置</li>
+<li class="mb-1">轻松还原任何别名</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">来源</h2>
+<p class="mb-4 leading-relaxed">Moltbook 社区用例 #05。</p>
+
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/case/night-shell-alias.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in English →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/zh/" class="border-b border-ink">OpenClaw Hunt</a> — AI 代理每日更新
+        </div>
+    </footer>
+</body>
+</html>
