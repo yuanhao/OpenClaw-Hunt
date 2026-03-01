@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>所有用例 — OpenClaw Hunt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'Noto Sans SC', 'sans-serif'],
+                        'body': ['Inter', 'Noto Sans SC', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                        'wild': '#ff9500',
+                        'flash': '#34c759',
+                        'deep': '#5856d6',
+                        'save': '#007aff',
+                        'wild-2': '#af52de',
+                        'diary': '#ff2d55',
+                        'hot': '#ff3b30',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .hand-drawn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+        .category-pill { border: 1.5px solid currentColor; padding: 2px 10px; font-family: 'Courier Prime', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-start">
+                <div>
+                    <a href="/OpenClaw-Hunt/zh/" class="font-display text-5xl font-bold tracking-tight mb-2 block">← OpenClaw Hunt</a>
+                    <p class="font-mono text-muted text-sm">社区全部 89 个用例</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
+                    <a href="/OpenClaw-Hunt/all.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors">EN</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="border-b-2 border-ink px-6 py-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap gap-3 items-center">
+                <input type="text" id="search" placeholder="搜索所有用例..." class="font-mono text-sm border-2 border-ink px-3 py-1 flex-grow max-w-md">
+                <button class="category-pill bg-ink text-paper" data-filter="all">全部</button>
+                <button class="category-pill text-wild hover:bg-wild hover:text-paper transition-colors" data-filter="wild">🦞 野生</button>
+                <button class="category-pill text-flash hover:bg-flash hover:text-paper transition-colors" data-filter="flash">⚡ 闪电</button>
+                <button class="category-pill text-deep hover:bg-deep hover:text-paper transition-colors" data-filter="deep">🕳️ 深坑</button>
+                <button class="category-pill text-save hover:bg-save hover:text-paper transition-colors" data-filter="save">💸 省钱</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="px-6 py-8">
+        <div class="max-w-7xl mx-auto">
+            <div id="case-list" class="space-y-4">
+                <!-- Cases will be loaded here -->
+            </div>
+            
+            <div class="mt-12 flex justify-center items-center gap-4" id="pagination">
+                <button id="prev-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50">← 上一页</button>
+                <span id="page-info" class="font-mono text-sm">第 1 页，共 4 页</span>
+                <button id="next-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50">下一页 →</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const allCases = [
+            { slug: 'book-writing-agents', title: '用 AI 代理写了一本书', category: 'wild', source: 'Reddit' },
+            { slug: 'deterministic-pipeline', title: '确定性多代理流水线', category: 'deep', source: 'DEV Community' },
+            { slug: 'oracle-cloud-vps', title: 'Oracle Cloud 免费 VPS', category: 'save', source: '社区' },
+            { slug: 'wazuh-soc-autopilot', title: 'Wazuh SOC 自动化', category: 'deep', source: 'GitHub' },
+            { slug: 'openpawz-rust-alternative', title: 'OpenPawz — Rust 替代品', category: 'wild-2', source: 'GitHub' },
+            { slug: 'daily-briefing', title: '5 分钟设置每日简报', category: 'flash', source: '社区' },
+            { slug: 'homeschool-agents', title: '5 个代理管理家庭教育', category: 'deep', source: '家长' },
+            { slug: 'shopify-shipping', title: 'Shopify → 罗马尼亚邮政', category: 'wild-2', source: '企业' },
+            { slug: 'n8n-orchestration', title: 'n8n 工作流编排', category: 'deep', source: 'GitHub' },
+            { slug: 'game-dev-pipeline', title: '自主游戏开发流水线', category: 'wild', source: 'GitHub' },
+            { slug: 'raspberry-pi-security', title: '树莓派 5 安全运营', category: 'deep', source: 'VULNEX' },
+            { slug: 'trading-automation', title: '交易分析自动化', category: 'wild', source: '交易社区' },
+            { slug: 'content-sourcing-engine', title: '内容采集引擎', category: 'flash', source: 'LinkedIn' },
+            { slug: 'multi-channel-customer-service', title: '多渠道 AI 客服', category: 'save', source: '社区' },
+            { slug: 'second-brain', title: '带语义搜索的第二大脑', category: 'deep', source: '社区' },
+            { slug: 'ssh-key-scanner', title: 'SSH 密钥扫描器', category: 'deep', source: 'Moltbook' },
+            { slug: 'token-optimizer', title: 'Token 使用优化器', category: 'save', source: 'Moltbook' },
+            { slug: 'travel-itinerary-planner', title: '旅行行程规划', category: 'flash', source: 'Moltbook' },
+            { slug: 'meeting-notes-generator', title: '会议记录生成器', category: 'flash', source: 'Moltbook' },
+            { slug: 'smart-home-telegram', title: '通过 Telegram 控制智能家居', category: 'flash', source: 'Moltbook' },
+            { slug: 'email-to-podcast', title: '邮件通讯转播客', category: 'flash', source: 'Moltbook' },
+            { slug: 'morning-briefing', title: '每日早间简报', category: 'flash', source: 'Moltbook' },
+            { slug: 'instagram-story-manager', title: 'Instagram 故事管理器', category: 'flash', source: 'Moltbook' },
+            { slug: 'night-shell-alias', title: '夜间 Shell 别名生成器', category: 'wild', source: 'Moltbook' },
+            { slug: 'github-issue-prioritizer', title: 'GitHub Issue 优先级排序', category: 'deep', source: 'Moltbook' },
+        ];
+
+        const categories = {
+            wild: '🦞 野生', flash: '⚡ 闪电', deep: '🕳️ 深坑', save: '💸 省钱', 'wild-2': '🤯 离谱', diary: '📝 日记', hot: '🔥 热门'
+        };
+
+        let currentPage = 1;
+        const perPage = 20;
+        let filteredCases = [...allCases];
+
+        function renderCases() {
+            const container = document.getElementById('case-list');
+            const start = (currentPage - 1) * perPage;
+            const pageCases = filteredCases.slice(start, start + perPage);
+            
+            container.innerHTML = pageCases.map(c => `
+                <a href="/OpenClaw-Hunt/zh/case/${c.slug}.html" class="block hand-drawn bg-white p-4 hover:transform hover:-translate-y-1 transition-transform" data-category="${c.category}">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="category-pill text-${c.category === 'wild-2' ? 'wild-2' : c.category} text-xs mb-2 inline-block">${categories[c.category] || c.category}</span>
+                            <h3 class="font-display text-lg font-bold">${c.title}</h3>
+                        </div>
+                        <span class="font-mono text-xs text-muted">${c.source}</span>
+                    </div>
+                </a>
+            `).join('');
+            
+            const totalPages = Math.ceil(filteredCases.length / perPage);
+            document.getElementById('page-info').textContent = `第 ${currentPage} 页，共 ${totalPages} 页`;
+            document.getElementById('prev-page').disabled = currentPage === 1;
+            document.getElementById('next-page').disabled = currentPage >= totalPages;
+        }
+
+        document.getElementById('search').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            filteredCases = allCases.filter(c => c.title.toLowerCase().includes(term) || c.category.includes(term));
+            currentPage = 1;
+            renderCases();
+        });
+
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('bg-ink', 'text-paper'));
+                btn.classList.add('bg-ink', 'text-paper');
+                
+                filteredCases = filter === 'all' ? [...allCases] : allCases.filter(c => c.category === filter);
+                currentPage = 1;
+                renderCases();
+            });
+        });
+
+        document.getElementById('prev-page').addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderCases(); }});
+        document.getElementById('next-page').addEventListener('click', () => { if (currentPage < Math.ceil(filteredCases.length / perPage)) { currentPage++; renderCases(); }});
+
+        renderCases();
+    </script>
+</body>
+</html>
