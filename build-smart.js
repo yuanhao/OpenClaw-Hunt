@@ -69,9 +69,33 @@ function parseMarkdown(filePath) {
     }
   }
   
-  // Generate excerpt from first paragraph
-  const firstParagraph = result.english.split('\n\n').find(p => p.trim() && !p.startsWith('#'));
-  result.excerpt = firstParagraph ? firstParagraph.slice(0, 150) + '...' : '';
+  // Generate excerpt from content (first meaningful paragraph, up to 200 chars)
+  const paragraphs = result.english.split('\n\n').filter(p => {
+    const trimmed = p.trim();
+    return trimmed && !trimmed.startsWith('#') && !trimmed.startsWith('---');
+  });
+  
+  // Try to find a good descriptive paragraph
+  let excerpt = '';
+  for (const p of paragraphs) {
+    const clean = p.replace(/\*\*|\*|`|\[|\]|\(|\)/g, '').trim();
+    if (clean.length > 50 && clean.length < 300) {
+      excerpt = clean;
+      break;
+    }
+  }
+  
+  // Fallback to first paragraph if no good one found
+  if (!excerpt && paragraphs.length > 0) {
+    excerpt = paragraphs[0].replace(/\*\*|\*|`|\[|\]|\(|\)/g, '').trim();
+  }
+  
+  // Truncate if too long
+  if (excerpt.length > 200) {
+    excerpt = excerpt.slice(0, 197) + '...';
+  }
+  
+  result.excerpt = excerpt;
   
   return result;
 }
@@ -259,27 +283,69 @@ ${cardsHTML}
         // Pagination
         const cardsPerPage = 24;
         let currentPage = 1;
-        const visibleCards = () => Array.from(cards).filter(c => c.style.display !== 'none');
+        let filteredCards = Array.from(cards);
+        
+        function updateFilteredCards() {
+            filteredCards = Array.from(cards).filter(c => {
+                // Check if card is visible (not hidden by search or filter)
+                const searchTerm = (searchInput.value || '').toLowerCase();
+                const activeFilter = document.querySelector('[data-filter].bg-ink')?.dataset.filter || 'all';
+                
+                const matchesSearch = !searchTerm || c.textContent.toLowerCase().includes(searchTerm);
+                const matchesFilter = activeFilter === 'all' || (c.dataset.category || '').includes(activeFilter);
+                
+                return matchesSearch && matchesFilter;
+            });
+            currentPage = 1;
+            showPage(1);
+        }
         
         function showPage(page) {
-            const all = visibleCards();
-            const totalPages = Math.ceil(all.length / cardsPerPage);
+            const totalPages = Math.ceil(filteredCards.length / cardsPerPage) || 1;
             const start = (page - 1) * cardsPerPage;
             const end = start + cardsPerPage;
             
-            all.forEach((card, index) => {
-                card.style.display = (index >= start && index < end) ? 'block' : 'none';
+            // First hide all cards
+            cards.forEach(card => card.style.display = 'none');
+            
+            // Then show only the ones for this page
+            filteredCards.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.style.display = 'block';
+                }
             });
             
-            document.getElementById('page-info').textContent = '${isZh ? '第' : 'Page'} ' + page + '${isZh ? ' 页' : ''} / ' + totalPages;
+            document.getElementById('page-info').textContent = '${isZh ? '第' : 'Page'} ' + page + '${isZh ? ' 页，共 ' : ' of '} ' + totalPages;
             document.getElementById('prev-page').disabled = page === 1;
-            document.getElementById('next-page').disabled = page === totalPages;
+            document.getElementById('next-page').disabled = page >= totalPages;
         }
         
-        document.getElementById('prev-page').addEventListener('click', () => { if (currentPage > 1) { currentPage--; showPage(currentPage); } });
-        document.getElementById('next-page').addEventListener('click', () => { const all = visibleCards(); if (currentPage < Math.ceil(all.length / cardsPerPage)) { currentPage++; showPage(currentPage); } });
+        // Update pagination when search/filter changes
+        searchInput.addEventListener('input', updateFilteredCards);
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Small delay to let filter apply first
+                setTimeout(updateFilteredCards, 0);
+            });
+        });
         
-        showPage(1);
+        document.getElementById('prev-page').addEventListener('click', () => { 
+            if (currentPage > 1) { 
+                currentPage--; 
+                showPage(currentPage); 
+            } 
+        });
+        
+        document.getElementById('next-page').addEventListener('click', () => { 
+            const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+            if (currentPage < totalPages) { 
+                currentPage++; 
+                showPage(currentPage); 
+            } 
+        });
+        
+        // Initial setup
+        updateFilteredCards();
     </script>
 </body>
 </html>`;
