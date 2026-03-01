@@ -34,138 +34,635 @@
         }
     </script>
     <style>
-        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
-        .hand-drawn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #1a1a1a; }
-        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
-        .category-pill { border: 1.5px solid currentColor; padding: 2px 10px; font-family: 'Courier Prime', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .hand-drawn {
+            border: 2px solid #1a1a1a;
+            box-shadow: 3px 3px 0 #1a1a1a;
+        }
+        .hand-drawn:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0 #1a1a1a;
+        }
+        .scan-line {
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.03) 2px,
+                rgba(0,0,0,0.03) 4px
+            );
+        }
+        .category-pill {
+            border: 1.5px solid currentColor;
+            padding: 2px 10px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .date-stamp {
+            font-family: 'Courier Prime', monospace;
+            border: 2px solid #1a1a1a;
+            padding: 8px 16px;
+            display: inline-block;
+            transform: rotate(-2deg);
+            background: #fff;
+        }
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 24px;
+        }
+        @media (max-width: 1024px) {
+            .masonry-grid { column-count: 2; }
+        }
+        @media (max-width: 640px) {
+            .masonry-grid { column-count: 1; }
+        }
+        .card {
+            break-inside: avoid;
+            margin-bottom: 24px;
+            display: block;
+        }
+        .card-small, .card-medium, .card-large, .card-full {
+            grid-row: auto;
+        }
+        .card-full {
+            column-span: all;
+        }
+        .glitch {
+            position: relative;
+        }
+        .glitch::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            text-shadow: -1px 0 #ff3b30;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 85px, 0); }
+            20% { clip: rect(63px, 9999px, 130px, 0); }
+            40% { clip: rect(25px, 9999px, 5px, 0); }
+            60% { clip: rect(76px, 9999px, 95px, 0); }
+            80% { clip: rect(15px, 9999px, 140px, 0); }
+            100% { clip: rect(53px, 9999px, 70px, 0); }
+        }
     </style>
 </head>
 <body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <!-- Header -->
     <header class="border-b-2 border-ink px-6 py-8">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-between items-start">
                 <div>
                     <a href="/OpenClaw-Hunt/zh/" class="font-display text-5xl font-bold tracking-tight mb-2 block">← OpenClaw Hunt</a>
-                    <p class="font-mono text-muted text-sm">社区全部 89 个用例</p>
+                    <p class="font-mono text-muted text-sm">
+                        社区全部 89 个用例 — <a href="/OpenClaw-Hunt/zh/" class="border-b border-ink">返回精选</a>
+                    </p>
                 </div>
                 <div class="flex items-center gap-4">
                     <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
-                    <a href="/OpenClaw-Hunt/all.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors">EN</a>
+                    <a href="/OpenClaw-Hunt/" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors">
+                        EN
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <nav class="border-b-2 border-ink px-6 py-4">
+    <!-- Filter Bar -->
+    <nav class="border-b-2 border-ink px-6 py-4 overflow-x-auto">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-wrap gap-3 items-center">
-                <input type="text" id="search" placeholder="搜索所有用例..." class="font-mono text-sm border-2 border-ink px-3 py-1 flex-grow max-w-md">
+            <div class="flex gap-3 whitespace-nowrap items-center">
                 <button class="category-pill bg-ink text-paper" data-filter="all">全部</button>
                 <button class="category-pill text-wild hover:bg-wild hover:text-paper transition-colors" data-filter="wild">🦞 野生</button>
                 <button class="category-pill text-flash hover:bg-flash hover:text-paper transition-colors" data-filter="flash">⚡ 闪电</button>
                 <button class="category-pill text-deep hover:bg-deep hover:text-paper transition-colors" data-filter="deep">🕳️ 深坑</button>
                 <button class="category-pill text-save hover:bg-save hover:text-paper transition-colors" data-filter="save">💸 省钱</button>
+                <button class="category-pill text-wild-2 hover:bg-wild-2 hover:text-paper transition-colors" data-filter="wild-2">🤯 离谱</button>
+                <button class="category-pill text-diary hover:bg-diary hover:text-paper transition-colors" data-filter="diary">📝 日记</button>
+                <button class="category-pill text-hot hover:bg-hot hover:text-paper transition-colors glitch" data-text="🔥 热门" data-filter="hot">🔥 热门</button>
+                <a href="/OpenClaw-Hunt/zh/" class="font-mono text-sm ml-auto border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors">← 返回精选</a>
             </div>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main class="px-6 py-8">
         <div class="max-w-7xl mx-auto">
-            <div id="case-list" class="space-y-4">
-                <!-- Cases will be loaded here -->
+            <div class="masonry-grid" id="case-grid">
+                <!-- Featured Case -->
+                <article class="card card-full hand-drawn bg-white p-6" data-category="wild hot">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-wild">🦞 野生</span>
+                        <span class="font-mono text-xs text-muted">2小时前</span>
+                    </div>
+                    <h2 class="font-display text-3xl font-bold mb-3">
+                        用 AI 代理写了一本书
+                    </h2>
+                    <p class="text-muted mb-4 leading-relaxed">
+                        搭建了一个自主多代理系统，读取 OpenClaw 源码仓库，
+                        从网络收集信息，写了一本关于这个平台的完整书籍。
+                        初始提示之后零人工干预。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-sm">@openclaw-lover</span>
+                        <a href="/OpenClaw-Hunt/zh/case/book-writing-agents.html" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
+                            阅读 →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- New: 确定性多代理流水线 -->
+                <article class="card card-large hand-drawn bg-white p-6" data-category="deep hot">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-deep">🕳️ 深坑</span>
+                        <span class="font-mono text-xs text-muted">DEV Community</span>
+                    </div>
+                    <h2 class="font-display text-2xl font-bold mb-3">
+                        确定性多代理流水线
+                    </h2>
+                    <p class="text-muted mb-4 leading-relaxed">
+                        YAML 状态机控制代码→审查→测试流程，不是 LLM。
+                        会话键作为地址。
+                        "不要用 LLM 编排，让它们做创造性工作，用代码做管道。"
+                    </p>
+                    <div class="bg-paper p-4 mb-4 border-l-4 border-deep">
+                        <p class="font-mono text-sm text-muted">
+                            技术：Lobster + agentToAgent + sessions_send
+                        </p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-sm">@gustavogondim</span>
+                        <a href="/OpenClaw-Hunt/zh/case/deterministic-pipeline.html" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
+                            阅读 →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- New: Oracle Cloud 免费 VPS -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="save hot">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-save">💸 省钱</span>
+                        <span class="font-mono text-xs text-muted">社区指南</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        Oracle Cloud 免费 VPS
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        4 核 ARM CPU，24GB 内存，200GB 存储。
+                        <strong class="text-save">永久 0 美元/月。</strong>
+                        一键 60 秒部署。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@community</span>
+                        <a href="/OpenClaw-Hunt/zh/case/oracle-cloud-vps.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- New: Wazuh SOC Autopilot -->
+                <article class="card card-large hand-drawn bg-white p-6" data-category="deep">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-deep">🕳️ 深坑</span>
+                        <span class="font-mono text-xs text-muted">GitHub</span>
+                    </div>
+                    <h2 class="font-display text-2xl font-bold mb-3">
+                        Wazuh SOC 自动化
+                    </h2>
+                    <p class="text-muted mb-4 leading-relaxed">
+                        使用 OpenClaw 代理和 MCP 的自主安全运营中心。
+                        自动分类警报、关联事件、生成响应计划，
+                        并保留人工审批环节。
+                    </p>
+                    <div class="bg-paper p-4 mb-4 border-l-4 border-deep">
+                        <p class="font-mono text-sm text-muted">
+                            技术栈：Wazuh + OpenClaw + Prometheus + Slack
+                        </p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-sm">@gensecaihq</span>
+                        <a href="/OpenClaw-Hunt/zh/case/wazuh-soc-autopilot.html" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
+                            阅读 →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- New: OpenPawz -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="wild-2">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-wild-2">🤯 离谱</span>
+                        <span class="font-mono text-xs text-muted">GitHub · 25⭐</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        OpenPawz — Rust 替代品
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        OpenClaw 的高性能 Rust 替代品。通过 Ollama 免费编排 25,000+ 工具。
+                        AES-256 加密，完全主权。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@OpenPawz</span>
+                        <a href="/OpenClaw-Hunt/zh/case/openpawz-rust-alternative.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- Medium Case -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="flash">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-flash">⚡ 闪电</span>
+                        <span class="font-mono text-xs text-muted">5小时前</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        5 分钟设置每日简报
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        早间摘要包含天气、日程、新闻和优先事项。
+                        每天节省 30+ 分钟。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@velvetshark</span>
+                        <a href="/OpenClaw-Hunt/zh/case/daily-briefing.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- Small Quote Card -->
+                <article class="card card-small hand-drawn bg-ink text-paper p-6" data-category="diary">
+                    <div class="mb-4">
+                        <span class="category-pill text-diary border-diary">📝 日记</span>
+                    </div>
+                    <blockquote class="font-display text-lg leading-snug mb-4">
+                        "我花了两周时间 babysitting，烧掉大量 token，
+                        看着我的代理同一个问题循环八次。"
+                    </blockquote>
+                    <cite class="font-mono text-sm text-gray-400 not-italic">
+                        — NoRecognition3346，Reddit
+                    </cite>
+                </article>
+
+                <!-- Medium Case -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="deep">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-deep">🕳️ 深坑</span>
+                        <span class="font-mono text-xs text-muted">1天前</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        5 个代理管理家庭教育
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        4 个孩子的家长运行专业代理管理教育、应用开发
+                        和实物库存追踪。零编程经验。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">Jesse Genet</span>
+                        <a href="/OpenClaw-Hunt/zh/case/homeschool-agents.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- Small Case -->
+                <article class="card card-small hand-drawn bg-white p-6" data-category="save">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-save">💸 省钱</span>
+                    </div>
+                    <h2 class="font-display text-lg font-bold mb-2">
+                        买车谈判机器人
+                    </h2>
+                    <p class="text-muted text-sm mb-3">
+                        抓取经销商报价，让他们互相竞价。
+                        <strong class="text-save">比标价低 $4,200。</strong>
+                    </p>
+                    <span class="font-mono text-xs text-muted">匿名用户</span>
+                </article>
+
+                <!-- Large Case -->
+                <article class="card card-large hand-drawn bg-white p-6" data-category="wild-2 hot">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-wild-2">🤯 离谱</span>
+                        <span class="font-mono text-xs text-muted">3天前</span>
+                    </div>
+                    <h2 class="font-display text-2xl font-bold mb-3">
+                        Shopify → 罗马尼亚邮政自动化
+                    </h2>
+                    <p class="text-muted mb-4 leading-relaxed">
+                        完整电商流程：从 Shopify 读取订单详情，
+                        打开快递公司网站，填写 AWB 字段，打印标签。
+                        全部通过 Kimi 2.5 浏览器自动化完成。
+                    </p>
+                    <div class="bg-paper p-4 mb-4 border-l-4 border-wild-2">
+                        <p class="font-mono text-sm text-muted">
+                            "即使是部分自动化也能节省我大量时间。"
+                        </p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-sm">罗马尼亚小企业主</span>
+                        <a href="/OpenClaw-Hunt/zh/case/shopify-shipping.html" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
+                            阅读 →
+                        </a>
+                    </div>
+                </article>
+
+                <!-- New: 交易自动化 -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="wild">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-wild">🦞 野生</span>
+                        <span class="font-mono text-xs text-muted">交易社区</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        交易分析自动化
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        OpenAlgo 接口连接交易所 API。市场监控、
+                        投资组合跟踪和研究 UI 生成。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@trading-community</span>
+                        <a href="/OpenClaw-Hunt/zh/case/trading-automation.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- New: 内容采集引擎 -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="flash">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-flash">⚡ 闪电</span>
+                        <span class="font-mono text-xs text-muted">LinkedIn</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        内容采集引擎
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        跨 Reddit、GitHub、YouTube、Discord 和博客的自动化新闻通讯研究。
+                        节省 90% 时间。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@dhruvkar</span>
+                        <a href="/OpenClaw-Hunt/zh/case/content-sourcing-engine.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- New: 多渠道 AI 客服 -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="save">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-save">💸 省钱</span>
+                        <span class="font-mono text-xs text-muted">社区</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        多渠道 AI 客服
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        统一 WhatsApp、Instagram、邮件、Google 评论。
+                        24/7 自动回复。无需增加人员处理 10 倍量。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@hesamsheikh</span>
+                        <a href="/OpenClaw-Hunt/zh/case/multi-channel-customer-service.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- New: 第二大脑 -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="deep">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-deep">🕳️ 深坑</span>
+                        <span class="font-mono text-xs text-muted">社区</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        带语义搜索的第二大脑
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        发任何内容让机器人记住。向量驱动的语义搜索，
+                        带 Next.js 仪表板。按含义搜索，不只是关键词。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@community</span>
+                        <a href="/OpenClaw-Hunt/zh/case/second-brain.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- New: SSH 密钥扫描器 -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="deep">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-deep">🕳️ 深坑</span>
+                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        SSH 密钥扫描器
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        在仓库中查找暴露的 SSH 密钥。仓库安全审计自动化。
+                        防止凭证泄露。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@moltbook</span>
+                        <a href="/OpenClaw-Hunt/zh/case/ssh-key-scanner.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- New: Token 使用优化器 -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="save">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-save">💸 省钱</span>
+                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        Token 使用优化器
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        降低 30-50% API 成本。智能上下文管理，
+                        实现更便宜的 AI 操作。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@moltbook</span>
+                        <a href="/OpenClaw-Hunt/zh/case/token-usage-optimizer.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- New: 旅行行程规划 -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="flash">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-flash">⚡ 闪电</span>
+                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        旅行行程规划
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        一条消息生成完整的逐日行程计划。
+                        只需告诉它去哪里和什么时候。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@moltbook</span>
+                        <a href="/OpenClaw-Hunt/zh/case/travel-itinerary-planner.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- New: 会议记录生成器 -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="flash">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-flash">⚡ 闪电</span>
+                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        会议记录生成器
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        粘贴原始笔记，获取结构化纪要。
+                        将混乱转化为专业文档。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@moltbook</span>
+                        <a href="/OpenClaw-Hunt/zh/case/meeting-notes-generator.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- New: Telegram 智能家居 -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="flash">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-flash">⚡ 闪电</span>
+                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        通过 Telegram 控制智能家居
+                    </h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">
+                        通过聊天控制灯光、恒温器、门锁。
+                        自然语言家庭自动化。
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@moltbook</span>
+                        <a href="/OpenClaw-Hunt/zh/case/smart-home-telegram.html" class="font-mono text-sm border-b-2 border-ink">阅读 →</a>
+                    </div>
+                </article>
+
+                <!-- Date Divider -->
+                <div class="card card-full flex items-center justify-center py-8">
+                    <div class="date-stamp transform rotate-1">
+                        2026年2月27日
+                    </div>
+                </div>
+
+                <!-- More cases... -->
+                <article class="card card-medium hand-drawn bg-white p-6" data-category="flash">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-flash">⚡ 闪电</span>
+                        <span class="font-mono text-xs text-muted">4天前</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">
+                        大规模邮件分类
+                    </h2>
+                    <p class="text-muted text-sm mb-4">
+                        2 天内清理 4,000+ 未读邮件。
+                        安全模式：仅草稿，不自动发送。
+                    </p>
+                    <span class="font-mono text-xs">@sidsaladi</span>
+                </article>
+
+                <article class="card card-small hand-drawn bg-white p-6" data-category="hot">
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="category-pill text-hot">🔥 热门</span>
+                    </div>
+                    <p class="font-mono text-sm leading-relaxed">
+                        <strong>196,000 GitHub stars</strong> 三个月内。
+                        全球 Mac Mini 断货。
+                    </p>
+                </article>
             </div>
             
+            <!-- Pagination -->
             <div class="mt-12 flex justify-center items-center gap-4" id="pagination">
-                <button id="prev-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50">← 上一页</button>
-                <span id="page-info" class="font-mono text-sm">第 1 页，共 4 页</span>
-                <button id="next-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50">下一页 →</button>
+                <button id="prev-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50 disabled:cursor-not-allowed">← 上一页</button>
+                <span id="page-info" class="font-mono text-sm">第 1 页，共 3 页</span>
+                
+                <button id="next-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50 disabled:cursor-not-allowed">下一页 →</button>
             </div>
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="font-mono text-sm text-muted">
+                    AI 代理每日更新 · 
+                    <a href="/OpenClaw-Hunt/zh/" class="border-b border-ink">OpenClaw Hunt</a> — AI 代理每日更新 · 
+                    <a href="https://github.com/yuanhao/OpenClaw-Hunt" class="border-b border-ink">GitHub</a>
+                </div>
+                <div class="font-mono text-sm">
+                    <a href="/zh/submit.html" class="hand-drawn bg-accent text-paper px-4 py-2 inline-block">
+                        提交发现 →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        const allCases = [
-            { slug: 'book-writing-agents', title: '用 AI 代理写了一本书', category: 'wild', source: 'Reddit' },
-            { slug: 'deterministic-pipeline', title: '确定性多代理流水线', category: 'deep', source: 'DEV Community' },
-            { slug: 'oracle-cloud-vps', title: 'Oracle Cloud 免费 VPS', category: 'save', source: '社区' },
-            { slug: 'wazuh-soc-autopilot', title: 'Wazuh SOC 自动化', category: 'deep', source: 'GitHub' },
-            { slug: 'openpawz-rust-alternative', title: 'OpenPawz — Rust 替代品', category: 'wild-2', source: 'GitHub' },
-            { slug: 'daily-briefing', title: '5 分钟设置每日简报', category: 'flash', source: '社区' },
-            { slug: 'homeschool-agents', title: '5 个代理管理家庭教育', category: 'deep', source: '家长' },
-            { slug: 'shopify-shipping', title: 'Shopify → 罗马尼亚邮政', category: 'wild-2', source: '企业' },
-            { slug: 'n8n-orchestration', title: 'n8n 工作流编排', category: 'deep', source: 'GitHub' },
-            { slug: 'game-dev-pipeline', title: '自主游戏开发流水线', category: 'wild', source: 'GitHub' },
-            { slug: 'raspberry-pi-security', title: '树莓派 5 安全运营', category: 'deep', source: 'VULNEX' },
-            { slug: 'trading-automation', title: '交易分析自动化', category: 'wild', source: '交易社区' },
-            { slug: 'content-sourcing-engine', title: '内容采集引擎', category: 'flash', source: 'LinkedIn' },
-            { slug: 'multi-channel-customer-service', title: '多渠道 AI 客服', category: 'save', source: '社区' },
-            { slug: 'second-brain', title: '带语义搜索的第二大脑', category: 'deep', source: '社区' },
-            { slug: 'ssh-key-scanner', title: 'SSH 密钥扫描器', category: 'deep', source: 'Moltbook' },
-            { slug: 'token-optimizer', title: 'Token 使用优化器', category: 'save', source: 'Moltbook' },
-            { slug: 'travel-itinerary-planner', title: '旅行行程规划', category: 'flash', source: 'Moltbook' },
-            { slug: 'meeting-notes-generator', title: '会议记录生成器', category: 'flash', source: 'Moltbook' },
-            { slug: 'smart-home-telegram', title: '通过 Telegram 控制智能家居', category: 'flash', source: 'Moltbook' },
-            { slug: 'email-to-podcast', title: '邮件通讯转播客', category: 'flash', source: 'Moltbook' },
-            { slug: 'morning-briefing', title: '每日早间简报', category: 'flash', source: 'Moltbook' },
-            { slug: 'instagram-story-manager', title: 'Instagram 故事管理器', category: 'flash', source: 'Moltbook' },
-            { slug: 'night-shell-alias', title: '夜间 Shell 别名生成器', category: 'wild', source: 'Moltbook' },
-            { slug: 'github-issue-prioritizer', title: 'GitHub Issue 优先级排序', category: 'deep', source: 'Moltbook' },
-        ];
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        const cards = document.querySelectorAll('.card');
 
-        const categories = {
-            wild: '🦞 野生', flash: '⚡ 闪电', deep: '🕳️ 深坑', save: '💸 省钱', 'wild-2': '🤯 离谱', diary: '📝 日记', hot: '🔥 热门'
-        };
-
-        let currentPage = 1;
-        const perPage = 20;
-        let filteredCases = [...allCases];
-
-        function renderCases() {
-            const container = document.getElementById('case-list');
-            const start = (currentPage - 1) * perPage;
-            const pageCases = filteredCases.slice(start, start + perPage);
-            
-            container.innerHTML = pageCases.map(c => `
-                <a href="/OpenClaw-Hunt/zh/case/${c.slug}.html" class="block hand-drawn bg-white p-4 hover:transform hover:-translate-y-1 transition-transform" data-category="${c.category}">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="category-pill text-${c.category === 'wild-2' ? 'wild-2' : c.category} text-xs mb-2 inline-block">${categories[c.category] || c.category}</span>
-                            <h3 class="font-display text-lg font-bold">${c.title}</h3>
-                        </div>
-                        <span class="font-mono text-xs text-muted">${c.source}</span>
-                    </div>
-                </a>
-            `).join('');
-            
-            const totalPages = Math.ceil(filteredCases.length / perPage);
-            document.getElementById('page-info').textContent = `第 ${currentPage} 页，共 ${totalPages} 页`;
-            document.getElementById('prev-page').disabled = currentPage === 1;
-            document.getElementById('next-page').disabled = currentPage >= totalPages;
-        }
-
-        document.getElementById('search').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            filteredCases = allCases.filter(c => c.title.toLowerCase().includes(term) || c.category.includes(term));
-            currentPage = 1;
-            renderCases();
-        });
-
-        document.querySelectorAll('[data-filter]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.dataset.filter;
-                document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('bg-ink', 'text-paper'));
-                btn.classList.add('bg-ink', 'text-paper');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
                 
-                filteredCases = filter === 'all' ? [...allCases] : allCases.filter(c => c.category === filter);
-                currentPage = 1;
-                renderCases();
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-ink', 'text-paper');
+                    if (btn.dataset.filter === 'all') {
+                        btn.classList.add('bg-ink', 'text-paper');
+                    }
+                });
+                if (filter !== 'all') {
+                    button.classList.add('bg-ink', 'text-paper');
+                    document.querySelector('[data-filter="all"]').classList.remove('bg-ink', 'text-paper');
+                }
+
+                cards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.dataset.category || '';
+                        card.style.display = categories.includes(filter) ? 'block' : 'none';
+                    }
+                });
             });
         });
 
-        document.getElementById('prev-page').addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderCases(); }});
-        document.getElementById('next-page').addEventListener('click', () => { if (currentPage < Math.ceil(filteredCases.length / perPage)) { currentPage++; renderCases(); }});
-
-        renderCases();
+        // Pagination
+        const cardsPerPage = 12;
+        let currentPage = 1;
+        const allCards = Array.from(document.querySelectorAll('.card')).filter(c => !c.classList.contains('date-stamp'));
+        const totalPages = Math.ceil(allCards.length / cardsPerPage);
+        
+        function showPage(page) {
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+            
+            allCards.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('page-info').textContent = `第 ${page} 页，共 ${totalPages} 页`;
+            document.getElementById('prev-page').disabled = page === 1;
+            document.getElementById('next-page').disabled = page === totalPages;
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        document.getElementById('prev-page').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+        
+        document.getElementById('next-page').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        });
+        
+        showPage(1);
     </script>
 </body>
 </html>

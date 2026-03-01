@@ -4,40 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Use Cases — OpenClaw Hunt</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'display': ['Space Grotesk', 'sans-serif'],
-                        'body': ['Inter', 'sans-serif'],
-                        'mono': ['Courier Prime', 'monospace'],
-                    },
-                    colors: {
-                        'paper': '#fafaf8',
-                        'ink': '#1a1a1a',
-                        'accent': '#ff3b30',
-                        'muted': '#6b6b6b',
-                        'wild': '#ff9500',
-                        'flash': '#34c759',
-                        'deep': '#5856d6',
-                        'save': '#007aff',
-                        'wild-2': '#af52de',
-                        'diary': '#ff2d55',
-                        'hot': '#ff3b30',
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
-        .hand-drawn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #1a1a1a; }
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; transition: all 0.1s; }
+        .hand-drawn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #1a1a1a; }
         .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
-        .category-pill { border: 1.5px solid currentColor; padding: 2px 10px; font-family: 'Courier Prime', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .category-pill { border: 1.5px solid currentColor; padding: 2px 10px; font-family: 'Courier Prime', monospace; font-size: 0.75rem; text-transform: uppercase; }
+        .masonry-grid { column-count: 3; column-gap: 24px; }
+        @media (max-width: 1024px) { .masonry-grid { column-count: 2; } }
+        @media (max-width: 640px) { .masonry-grid { column-count: 1; } }
+        .card { break-inside: avoid; margin-bottom: 24px; display: block; }
     </style>
 </head>
 <body class="bg-paper text-ink font-body scan-line min-h-screen">
@@ -46,10 +23,10 @@
             <div class="flex justify-between items-start">
                 <div>
                     <a href="/OpenClaw-Hunt/" class="font-display text-5xl font-bold tracking-tight mb-2 block">← OpenClaw Hunt</a>
-                    <p class="font-mono text-muted text-sm">All 89 use cases from the community</p>
+                    <p class="font-mono text-muted text-sm mt-2">All 89 use cases — Search, filter, explore</p>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="/OpenClaw-Hunt/zh/all.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors">中</a>
+                    <a href="/OpenClaw-Hunt/zh/all.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">中</a>
                     <span class="font-mono text-sm bg-ink text-paper px-3 py-1">EN</span>
                 </div>
             </div>
@@ -59,118 +36,26 @@
     <nav class="border-b-2 border-ink px-6 py-4">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-wrap gap-3 items-center">
-                <input type="text" id="search" placeholder="Search all use cases..." class="font-mono text-sm border-2 border-ink px-3 py-1 flex-grow max-w-md">
+                <input type="text" id="search" placeholder="Search..." class="font-mono text-sm border-2 border-ink px-3 py-1 flex-grow max-w-md">
                 <button class="category-pill bg-ink text-paper" data-filter="all">All</button>
-                <button class="category-pill text-wild hover:bg-wild hover:text-paper transition-colors" data-filter="wild">🦞 Wild</button>
-                <button class="category-pill text-flash hover:bg-flash hover:text-paper transition-colors" data-filter="flash">⚡ Flash</button>
-                <button class="category-pill text-deep hover:bg-deep hover:text-paper transition-colors" data-filter="deep">🕳️ Deep</button>
-                <button class="category-pill text-save hover:bg-save hover:text-paper transition-colors" data-filter="save">💸 Save</button>
+                <button class="category-pill text-wild" data-filter="wild">🦞 Wild</button>
+                <button class="category-pill text-flash" data-filter="flash">⚡ Flash</button>
+                <button class="category-pill text-deep" data-filter="deep">🕳️ Deep</button>
+                <button class="category-pill text-save" data-filter="save">💸 Save</button>
             </div>
         </div>
     </nav>
 
     <main class="px-6 py-8">
         <div class="max-w-7xl mx-auto">
-            <div id="case-list" class="space-y-4">
-                <!-- Cases will be loaded here -->
-            </div>
-            
-            <div class="mt-12 flex justify-center items-center gap-4" id="pagination">
-                <button id="prev-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50">← Prev</button>
-                <span id="page-info" class="font-mono text-sm">Page 1 of 4</span>
-                <button id="next-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50">Next →</button>
+            <div class="masonry-grid" id="case-grid"></div>
+            <div class="mt-12 flex justify-center items-center gap-4">
+                <button id="prev-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper disabled:opacity-30">← Prev</button>
+                <span id="page-info" class="font-mono text-sm">Page 1</span>
+                <button id="next-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper disabled:opacity-30">Next →</button>
             </div>
         </div>
     </main>
 
     <script>
-        // List of all cases (generated from build)
         const allCases = [
-            { slug: 'book-writing-agents', title: 'Wrote a Book Using AI Agents', category: 'wild', source: 'Reddit' },
-            { slug: 'deterministic-pipeline', title: 'Deterministic Multi-Agent Pipeline', category: 'deep', source: 'DEV Community' },
-            { slug: 'oracle-cloud-vps', title: 'Oracle Cloud Free VPS', category: 'save', source: 'Community' },
-            { slug: 'wazuh-soc-autopilot', title: 'Wazuh SOC Autopilot', category: 'deep', source: 'GitHub' },
-            { slug: 'openpawz-rust-alternative', title: 'OpenPawz — Rust Alternative', category: 'wild-2', source: 'GitHub' },
-            { slug: 'daily-briefing', title: 'Daily Briefing in 5 Minutes', category: 'flash', source: 'Community' },
-            { slug: 'homeschool-agents', title: '5 Agents for Homeschooling', category: 'deep', source: 'Parent' },
-            { slug: 'shopify-shipping', title: 'Shopify → Romanian Post', category: 'wild-2', source: 'Business' },
-            { slug: 'n8n-orchestration', title: 'n8n Workflow Orchestration', category: 'deep', source: 'GitHub' },
-            { slug: 'game-dev-pipeline', title: 'Autonomous Game Dev Pipeline', category: 'wild', source: 'GitHub' },
-            { slug: 'raspberry-pi-security', title: 'Raspberry Pi 5 Security', category: 'deep', source: 'VULNEX' },
-            { slug: 'trading-automation', title: 'Trading Analysis Automation', category: 'wild', source: 'Trading' },
-            { slug: 'content-sourcing-engine', title: 'Content Sourcing Engine', category: 'flash', source: 'LinkedIn' },
-            { slug: 'multi-channel-customer-service', title: 'Multi-Channel AI Customer Service', category: 'save', source: 'Community' },
-            { slug: 'second-brain', title: 'Second Brain with Semantic Search', category: 'deep', source: 'Community' },
-            { slug: 'ssh-key-scanner', title: 'SSH Key Scanner', category: 'deep', source: 'Moltbook' },
-            { slug: 'token-optimizer', title: 'Token Usage Optimizer', category: 'save', source: 'Moltbook' },
-            { slug: 'travel-itinerary-planner', title: 'Travel Itinerary Planner', category: 'flash', source: 'Moltbook' },
-            { slug: 'meeting-notes-generator', title: 'Meeting Notes Generator', category: 'flash', source: 'Moltbook' },
-            { slug: 'smart-home-telegram', title: 'Smart Home via Telegram', category: 'flash', source: 'Moltbook' },
-            { slug: 'email-to-podcast', title: 'Email Newsletter to Podcast', category: 'flash', source: 'Moltbook' },
-            { slug: 'morning-briefing', title: 'Daily Morning Briefing', category: 'flash', source: 'Moltbook' },
-            { slug: 'instagram-story-manager', title: 'Instagram Story Manager', category: 'flash', source: 'Moltbook' },
-            { slug: 'night-shell-alias', title: 'Night Shell Alias Builder', category: 'wild', source: 'Moltbook' },
-            { slug: 'github-issue-prioritizer', title: 'GitHub Issue Prioritizer', category: 'deep', source: 'Moltbook' },
-            // ... more cases would be listed here
-        ];
-
-        const categories = {
-            wild: '🦞 Wild', flash: '⚡ Flash', deep: '🕳️ Deep', save: '💸 Save', 'wild-2': '🤯 Wild²', diary: '📝 Diary', hot: '🔥 Hot'
-        };
-
-        let currentPage = 1;
-        const perPage = 20;
-        let filteredCases = [...allCases];
-
-        function renderCases() {
-            const container = document.getElementById('case-list');
-            const start = (currentPage - 1) * perPage;
-            const pageCases = filteredCases.slice(start, start + perPage);
-            
-            container.innerHTML = pageCases.map(c => `
-                <a href="/OpenClaw-Hunt/case/${c.slug}.html" class="block hand-drawn bg-white p-4 hover:transform hover:-translate-y-1 transition-transform" data-category="${c.category}">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="category-pill text-${c.category === 'wild-2' ? 'wild-2' : c.category} text-xs mb-2 inline-block">${categories[c.category] || c.category}</span>
-                            <h3 class="font-display text-lg font-bold">${c.title}</h3>
-                        </div>
-                        <span class="font-mono text-xs text-muted">${c.source}</span>
-                    </div>
-                </a>
-            `).join('');
-            
-            const totalPages = Math.ceil(filteredCases.length / perPage);
-            document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
-            document.getElementById('prev-page').disabled = currentPage === 1;
-            document.getElementById('next-page').disabled = currentPage >= totalPages;
-        }
-
-        // Search
-        document.getElementById('search').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            filteredCases = allCases.filter(c => c.title.toLowerCase().includes(term) || c.category.includes(term));
-            currentPage = 1;
-            renderCases();
-        });
-
-        // Filter
-        document.querySelectorAll('[data-filter]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.dataset.filter;
-                document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('bg-ink', 'text-paper'));
-                btn.classList.add('bg-ink', 'text-paper');
-                
-                filteredCases = filter === 'all' ? [...allCases] : allCases.filter(c => c.category === filter);
-                currentPage = 1;
-                renderCases();
-            });
-        });
-
-        // Pagination
-        document.getElementById('prev-page').addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderCases(); }});
-        document.getElementById('next-page').addEventListener('click', () => { if (currentPage < Math.ceil(filteredCases.length / perPage)) { currentPage++; renderCases(); }});
-
-        renderCases();
-    </script>
-</body>
-</html>
