@@ -351,6 +351,189 @@ ${cardsHTML}
 </html>`;
 }
 
+// Generate all.html page with masonry layout
+function generateAllPage(allCases, isZh = false) {
+  const categories = {
+    wild: { name: '🦞 Wild', nameZh: '🦞 野生', color: 'text-wild' },
+    flash: { name: '⚡ Flash', nameZh: '⚡ 闪电', color: 'text-flash' },
+    deep: { name: '🕳️ Deep', nameZh: '🕳️ 深坑', color: 'text-deep' },
+    save: { name: '💸 Save', nameZh: '💸 省钱', color: 'text-save' },
+    'wild-2': { name: '🤯 Wild²', nameZh: '🤯 离谱', color: 'text-wild-2' },
+    diary: { name: '📝 Diary', nameZh: '📝 日记', color: 'text-diary' },
+    hot: { name: '🔥 Hot', nameZh: '🔥 热门', color: 'text-hot' }
+  };
+
+  // Generate cards HTML
+  const cardsHTML = allCases.map(({ slug, data }) => {
+    const fm = data.frontmatter;
+    const cat = categories[fm.category] || categories.wild;
+    const catName = isZh ? cat.nameZh : cat.name;
+    const title = isZh ? fm.title_zh : fm.title;
+    const desc = data.excerpt || (isZh ? '查看详情...' : 'Read more...');
+    
+    return `
+                <article class="card hand-drawn bg-white p-6" data-category="${fm.category}">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill ${cat.color}">${catName}</span>
+                        <span class="font-mono text-xs text-muted">${fm.source}</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">${title}</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">${desc}</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">${fm.author}</span>
+                        <a href="/OpenClaw-Hunt${isZh ? '/zh' : ''}/case/${slug}.html" class="font-mono text-sm border-b-2 border-ink">${isZh ? '阅读 →' : 'Read →'}</a>
+                    </div>
+                </article>`;
+  }).join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="${isZh ? 'zh-CN' : 'en'}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${isZh ? '所有用例' : 'All Use Cases'} — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', ${isZh ? "'Noto Sans SC', " : ''}'sans-serif'],
+                        'body': ['Inter', ${isZh ? "'Noto Sans SC', " : ''}'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                        'wild': '#ff9500',
+                        'flash': '#34c759',
+                        'deep': '#5856d6',
+                        'save': '#007aff',
+                        'wild-2': '#af52de',
+                        'diary': '#ff2d55',
+                        'hot': '#ff3b30',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; transition: all 0.1s; }
+        .hand-drawn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+        .category-pill { border: 1.5px solid currentColor; padding: 2px 10px; font-family: 'Courier Prime', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .masonry-grid { column-count: 3; column-gap: 24px; }
+        @media (max-width: 1024px) { .masonry-grid { column-count: 2; } }
+        @media (max-width: 640px) { .masonry-grid { column-count: 1; } }
+        .card { break-inside: avoid; margin-bottom: 24px; display: block; }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-start">
+                <div>
+                    <a href="/OpenClaw-Hunt${isZh ? '/zh' : ''}/" class="font-display text-5xl font-bold tracking-tight mb-2 block hover:opacity-80 transition-opacity">← OpenClaw Hunt</a>
+                    <p class="font-mono text-muted text-sm mt-2">${isZh ? '全部 ' + allCases.length + ' 个用例 — 搜索、筛选、探索' : 'All ' + allCases.length + ' use cases — Search, filter, explore'}</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="${isZh ? '/OpenClaw-Hunt/all.html' : '/OpenClaw-Hunt/zh/all.html'}" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors">${isZh ? 'EN' : '中'}</a>
+                    <span class="font-mono text-sm bg-ink text-paper px-3 py-1">${isZh ? '中' : 'EN'}</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="border-b-2 border-ink px-6 py-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap gap-3 items-center">
+                <input type="text" id="search" placeholder="${isZh ? '搜索所有用例...' : 'Search all use cases...'}" class="font-mono text-sm border-2 border-ink px-3 py-1 flex-grow max-w-md focus:outline-none focus:ring-2 focus:ring-ink">
+                <button class="category-pill bg-ink text-paper" data-filter="all">${isZh ? '全部' : 'All'}</button>
+                <button class="category-pill text-wild hover:bg-wild hover:text-paper transition-colors" data-filter="wild">${isZh ? '🦞 野生' : '🦞 Wild'}</button>
+                <button class="category-pill text-flash hover:bg-flash hover:text-paper transition-colors" data-filter="flash">${isZh ? '⚡ 闪电' : '⚡ Flash'}</button>
+                <button class="category-pill text-deep hover:bg-deep hover:text-paper transition-colors" data-filter="deep">${isZh ? '🕳️ 深坑' : '🕳️ Deep'}</button>
+                <button class="category-pill text-save hover:bg-save hover:text-paper transition-colors" data-filter="save">${isZh ? '💸 省钱' : '💸 Save'}</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="px-6 py-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="masonry-grid" id="case-grid">
+${cardsHTML}
+            </div>
+            
+            <div class="mt-12 flex justify-center items-center gap-4" id="pagination">
+                <button id="prev-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-30">← ${isZh ? '上一页' : 'Prev'}</button>
+                <span id="page-info" class="font-mono text-sm">${isZh ? '第 1 页' : 'Page 1'}</span>
+                <button id="next-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-30">${isZh ? '下一页' : 'Next'} →</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-7xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="https://github.com/yuanhao/OpenClaw-Hunt" class="border-b border-ink">GitHub</a> — ${isZh ? 'AI 代理每日更新' : 'Updated daily by AI agents'}
+        </div>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const searchInput = document.getElementById('search');
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        let currentPage = 1;
+        const cardsPerPage = 24;
+        let filteredCards = Array.from(cards);
+
+        function updateFilteredCards() {
+            const term = (searchInput.value || '').toLowerCase();
+            const activeFilter = document.querySelector('[data-filter].bg-ink')?.dataset.filter || 'all';
+            
+            filteredCards = Array.from(cards).filter(c => {
+                const matchesSearch = !term || c.textContent.toLowerCase().includes(term);
+                const matchesFilter = activeFilter === 'all' || (c.dataset.category || '').includes(activeFilter);
+                return matchesSearch && matchesFilter;
+            });
+            currentPage = 1;
+            showPage(1);
+        }
+
+        function showPage(page) {
+            const totalPages = Math.ceil(filteredCards.length / cardsPerPage) || 1;
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+            
+            cards.forEach(card => card.style.display = 'none');
+            filteredCards.forEach((card, index) => {
+                if (index >= start && index < end) card.style.display = 'block';
+            });
+            
+            document.getElementById('page-info').textContent = '${isZh ? '第' : 'Page'} ' + page + '${isZh ? ' 页，共 ' : ' of '} ' + totalPages;
+            document.getElementById('prev-page').disabled = page === 1;
+            document.getElementById('next-page').disabled = page >= totalPages;
+        }
+
+        searchInput.addEventListener('input', updateFilteredCards);
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('bg-ink', 'text-paper'));
+                btn.classList.add('bg-ink', 'text-paper');
+                setTimeout(updateFilteredCards, 0);
+            });
+        });
+
+        document.getElementById('prev-page').addEventListener('click', () => { if (currentPage > 1) { currentPage--; showPage(currentPage); }});
+        document.getElementById('next-page').addEventListener('click', () => { if (currentPage < Math.ceil(filteredCards.length / cardsPerPage)) { currentPage++; showPage(currentPage); }});
+
+        updateFilteredCards();
+    </script>
+</body>
+</html>`;
+}
+
 // Main build function
 function build() {
   const contentDir = path.join(__dirname, 'content/cases');
@@ -389,6 +572,14 @@ function build() {
   fs.writeFileSync(path.join(__dirname, 'index.html'), indexEN);
   fs.writeFileSync(path.join(__dirname, 'zh/index.html'), indexZH);
   console.log('\n✓ Generated index.html and zh/index.html');
+  
+  // Generate all.html pages with masonry layout
+  const allPageEN = generateAllPage(allCases, false);
+  const allPageZH = generateAllPage(allCases, true);
+  fs.writeFileSync(path.join(__dirname, 'all.html'), allPageEN);
+  fs.writeFileSync(path.join(__dirname, 'zh/all.html'), allPageZH);
+  console.log('✓ Generated all.html and zh/all.html');
+  
   console.log(`✓ Total: ${allCases.length} use cases`);
 }
 
