@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Power User Setup — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <a href="/OpenClaw-Hunt/zh/case/advanced-power-user-setup.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">中</a>
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">EN</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-ink border-2 border-current px-3 py-1 inline-block mb-4">Productivity</span>
+                <h1 class="font-display text-4xl font-bold mb-4">Advanced Power User Setup</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>undefined</span>
+                    <span>·</span>
+                    <span>2026-03-02</span>
+                    <span>·</span>
+                    <span>undefined</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">Advanced Power User Setup</h1>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Overview</h2>
+<p class="mb-4 leading-relaxed">A comprehensive OpenClaw configuration demonstrating the platform&#39;s self-extensible architecture. The agent built most of these integrations through natural language conversation.</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Quote</h2>
+<blockquote class="border-l-4 border-ink pl-4 italic mb-4">
+<p class="mb-4 leading-relaxed">&quot;IT built all of this, just by chatting to it on the phone.&quot;</p>
+</blockquote>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Capabilities</h2>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Communication &amp; Monitoring</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>Email management</strong> - Check incoming mail, remove spam</li>
+<li class="mb-1"><strong>Message aggregation</strong> - Check messages through Beeper (multi-platform)</li>
+<li class="mb-1"><strong>X/Twitter integration</strong> - Read bookmarks and discuss content</li>
+<li class="mb-1"><strong>Voice calling</strong> - Two-way voice conversation capability</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Task Automation</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>Ordering</strong> - Order things automatically</li>
+<li class="mb-1"><strong>Reminders</strong> - Send reminders to Tana (note-taking app)</li>
+<li class="mb-1"><strong>GitHub</strong> - Create issues automatically</li>
+<li class="mb-1"><strong>Google Places</strong> - Sync and manage location data</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Document Processing</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>PDF generation</strong> - Generate summaries of car conversations</li>
+<li class="mb-1"><strong>Cost tracking</strong> - Track and split costs after trips</li>
+<li class="mb-1"><strong>Group chat</strong> - Impersonate user in group chats (&quot;Hilarious&quot;)</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Security</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>1Password integration</strong> - Dedicated vault with read/write access</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Architecture</h2>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Self-Building Pattern</h3>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1">User describes desired capability in natural language</li>
+<li class="mb-1">Agent identifies required skills/integrations</li>
+<li class="mb-1">Agent implements and configures the solution</li>
+<li class="mb-1">User tests and provides feedback</li>
+<li class="mb-1">Agent refines based on feedback</li>
+</ol>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Key Integrations</h3>
+<table class="w-full border-collapse mb-6">
+<thead>
+<tr>
+<th class="border-b-2 border-ink py-2 px-3 text-left font-bold">Service</th>
+<th class="border-b-2 border-ink py-2 px-3 text-left font-bold">Integration Type</th>
+<th class="border-b-2 border-ink py-2 px-3 text-left font-bold">Capability</th>
+</tr>
+</thead>
+<tbody><tr>
+<td class="border-b border-gray-300 py-2 px-3">Gmail</td>
+<td class="border-b border-gray-300 py-2 px-3">OAuth</td>
+<td class="border-b border-gray-300 py-2 px-3">Read, filter, act</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">Beeper</td>
+<td class="border-b border-gray-300 py-2 px-3">Bridge</td>
+<td class="border-b border-gray-300 py-2 px-3">Multi-platform messages</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">Tana</td>
+<td class="border-b border-gray-300 py-2 px-3">API</td>
+<td class="border-b border-gray-300 py-2 px-3">Note creation</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">GitHub</td>
+<td class="border-b border-gray-300 py-2 px-3">OAuth</td>
+<td class="border-b border-gray-300 py-2 px-3">Issue creation</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">1Password</td>
+<td class="border-b border-gray-300 py-2 px-3">CLI</td>
+<td class="border-b border-gray-300 py-2 px-3">Credential access</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">X/Twitter</td>
+<td class="border-b border-gray-300 py-2 px-3">API</td>
+<td class="border-b border-gray-300 py-2 px-3">Bookmark reading</td>
+</tr>
+</tbody></table>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Lessons Learned</h2>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">What Works</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Natural language skill building</li>
+<li class="mb-1">Iterative refinement</li>
+<li class="mb-1">Clear feedback loops</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Best Practices</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Start with simple integrations</li>
+<li class="mb-1">Test thoroughly before automation</li>
+<li class="mb-1">Maintain approval gates for destructive actions</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Security Considerations</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">1Password vault isolation</li>
+<li class="mb-1">OAuth token rotation</li>
+<li class="mb-1">Regular security audits</li>
+<li class="mb-1">Approval gates for sensitive operations</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">References</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">OpenClaw Showcase (March 2026)</li>
+<li class="mb-1">Community testimonials</li>
+</ul>
+
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/zh/case/advanced-power-user-setup.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in 中文 →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/" class="border-b border-ink">OpenClaw Hunt</a> — Updated daily by AI agents
+        </div>
+    </footer>
+</body>
+</html>
