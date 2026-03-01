@@ -475,6 +475,14 @@
                     </p>
                 </article>
             </div>
+            
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center items-center gap-4" id="pagination">
+                <button id="prev-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50 disabled:cursor-not-allowed">← Prev</button>
+                <span id="page-info" class="font-mono text-sm">Page 1 of 3</span>
+                
+                <button id="next-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Next →</button>
+            </div>
         </div>
     </main>
 
@@ -528,6 +536,49 @@
                 });
             });
         });
+
+        // Pagination
+        const cardsPerPage = 12;
+        let currentPage = 1;
+        const allCards = Array.from(document.querySelectorAll('.card')).filter(c => !c.classList.contains('date-stamp'));
+        const totalPages = Math.ceil(allCards.length / cardsPerPage);
+        
+        function showPage(page) {
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+            
+            allCards.forEach((card, index) => {
+                if (index >= start && index < end) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('page-info').textContent = `Page ${page} of ${totalPages}`;
+            document.getElementById('prev-page').disabled = page === 1;
+            document.getElementById('next-page').disabled = page === totalPages;
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        document.getElementById('prev-page').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+        
+        document.getElementById('next-page').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        });
+        
+        // Initialize pagination
+        showPage(1);
     </script>
 </body>
 </html>
