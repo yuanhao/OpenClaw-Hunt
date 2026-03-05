@@ -349,6 +349,28 @@ function build() {
     
     // Process all markdown files
     const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'));
+    const caseCount = files.length;
+    
+    // Update case count in index.html files
+    if (fs.existsSync(indexPath)) {
+        let indexContent = fs.readFileSync(indexPath, 'utf-8');
+        indexContent = indexContent.replace(
+            /View All \(\d+\)/,
+            `View All (${caseCount})`
+        );
+        fs.writeFileSync(indexPath, indexContent);
+        console.log(`✓ Updated index.html case count: ${caseCount}`);
+    }
+    
+    if (fs.existsSync(zhIndexPath)) {
+        let zhIndexContent = fs.readFileSync(zhIndexPath, 'utf-8');
+        zhIndexContent = zhIndexContent.replace(
+            /查看全部 \(\d+\)/,
+            `查看全部 (${caseCount})`
+        );
+        fs.writeFileSync(zhIndexPath, zhIndexContent);
+        console.log(`✓ Updated zh/index.html case count: ${caseCount}`);
+    }
     
     for (const file of files) {
         const slug = file.replace('.md', '');
