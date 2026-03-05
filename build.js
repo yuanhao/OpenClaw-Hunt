@@ -317,6 +317,36 @@ function build() {
         }
     });
     
+    // Get today's date for the index page
+    const now = new Date();
+    const todayDate = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
+    
+    // Update date in index.html files
+    const indexPath = path.join(__dirname, 'index.html');
+    const zhIndexPath = path.join(__dirname, 'zh', 'index.html');
+    
+    // Update English index
+    if (fs.existsSync(indexPath)) {
+        let indexContent = fs.readFileSync(indexPath, 'utf-8');
+        indexContent = indexContent.replace(
+            /<span class="date-stamp ml-2" id="current-date"><\/span>/,
+            `<span class="date-stamp ml-2" id="current-date">${todayDate}</span>`
+        );
+        fs.writeFileSync(indexPath, indexContent);
+        console.log(`✓ Updated index.html date: ${todayDate}`);
+    }
+    
+    // Update Chinese index
+    if (fs.existsSync(zhIndexPath)) {
+        let zhIndexContent = fs.readFileSync(zhIndexPath, 'utf-8');
+        zhIndexContent = zhIndexContent.replace(
+            /<span class="date-stamp ml-2" id="current-date"><\/span>/,
+            `<span class="date-stamp ml-2" id="current-date">${todayDate}</span>`
+        );
+        fs.writeFileSync(zhIndexPath, zhIndexContent);
+        console.log(`✓ Updated zh/index.html date: ${todayDate}`);
+    }
+    
     // Process all markdown files
     const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'));
     
