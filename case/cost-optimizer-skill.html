@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Cost Optimizer Skill — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <a href="/OpenClaw-Hunt/zh/case/cost-optimizer-skill.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">中</a>
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">EN</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-ink border-2 border-current px-3 py-1 inline-block mb-4">Infrastructure</span>
+                <h1 class="font-display text-4xl font-bold mb-4">OpenClaw Cost Optimizer Skill</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>undefined</span>
+                    <span>·</span>
+                    <span>2026-03-02</span>
+                    <span>·</span>
+                    <span>undefined</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">OpenClaw Cost Optimizer Skill</h1>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Overview</h2>
+<p class="mb-4 leading-relaxed">A community-created skill addressing one of the most common pain points in multi-provider AI agent setups: cost visibility and optimization.</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">The Problem</h2>
+<blockquote class="border-l-4 border-ink pl-4 italic mb-4">
+<p class="mb-4 leading-relaxed">&quot;The BIGGEST problem is no one knows what APIs are being called and how much it costs.&quot;</p>
+</blockquote>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Solution Features</h2>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Token Usage Tracking</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Real-time token consumption monitoring</li>
+<li class="mb-1">Per-provider cost breakdown</li>
+<li class="mb-1">Per-skill usage attribution</li>
+<li class="mb-1">Historical trend analysis</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Cost Optimization</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Automatic model routing based on cost/performance</li>
+<li class="mb-1">Alerts on unusual spending patterns</li>
+<li class="mb-1">Budget thresholds and limits</li>
+<li class="mb-1">Recommendations for cost reduction</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Provider Comparison</h3>
+<table class="w-full border-collapse mb-6">
+<thead>
+<tr>
+<th class="border-b-2 border-ink py-2 px-3 text-left font-bold">Provider</th>
+<th class="border-b-2 border-ink py-2 px-3 text-left font-bold">Model</th>
+<th class="border-b-2 border-ink py-2 px-3 text-left font-bold">Cost per 1M tokens</th>
+<th class="border-b-2 border-ink py-2 px-3 text-left font-bold">Use Case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td class="border-b border-gray-300 py-2 px-3">Anthropic</td>
+<td class="border-b border-gray-300 py-2 px-3">Haiku</td>
+<td class="border-b border-gray-300 py-2 px-3">$0.25</td>
+<td class="border-b border-gray-300 py-2 px-3">Routine tasks</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">Anthropic</td>
+<td class="border-b border-gray-300 py-2 px-3">Sonnet</td>
+<td class="border-b border-gray-300 py-2 px-3">$3.00</td>
+<td class="border-b border-gray-300 py-2 px-3">General tasks</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">Anthropic</td>
+<td class="border-b border-gray-300 py-2 px-3">Opus</td>
+<td class="border-b border-gray-300 py-2 px-3">$15.00</td>
+<td class="border-b border-gray-300 py-2 px-3">Complex reasoning</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">OpenAI</td>
+<td class="border-b border-gray-300 py-2 px-3">GPT-4o</td>
+<td class="border-b border-gray-300 py-2 px-3">$5.00</td>
+<td class="border-b border-gray-300 py-2 px-3">General tasks</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">Google</td>
+<td class="border-b border-gray-300 py-2 px-3">Gemini Flash</td>
+<td class="border-b border-gray-300 py-2 px-3">$0.35</td>
+<td class="border-b border-gray-300 py-2 px-3">Fast responses</td>
+</tr>
+</tbody></table>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Implementation</h2>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Configuration</h3>
+<pre class="bg-gray-100 p-4 rounded mb-4 overflow-x-auto"><code class="language-json">{
+  &quot;cost_optimizer&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;daily_budget&quot;: 10.00,
+    &quot;alert_threshold&quot;: 0.80,
+    &quot;track_by_skill&quot;: true,
+    &quot;optimize_routing&quot;: true
+  }
+}
+</code></pre>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Commands</h3>
+<pre class="bg-gray-100 p-4 rounded mb-4 overflow-x-auto"><code class="font-mono text-sm">/cost status          - Show current usage
+/cost breakdown       - Per-skill breakdown
+/cost optimize        - Get optimization suggestions
+/cost alert set 5.00  - Set budget alert
+/cost report daily    - Daily usage report
+</code></pre>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Optimization Strategies</h2>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">1. Model Routing</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Route routine tasks to cheaper models (Haiku, Gemini Flash)</li>
+<li class="mb-1">Reserve expensive models (Opus) for complex tasks</li>
+<li class="mb-1">Automatic fallback if cheaper model fails</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">2. Token Efficiency</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Compact prompts</li>
+<li class="mb-1">Response caching</li>
+<li class="mb-1">Context window management</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">3. Batch Processing</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Group similar requests</li>
+<li class="mb-1">Process during off-peak hours</li>
+<li class="mb-1">Async execution where possible</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Real-World Impact</h2>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">Before Optimization</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Average: 20-40k tokens per request</li>
+<li class="mb-1">Cost: ~$0.50-1.00 per complex task</li>
+</ul>
+<h3 class="font-display text-xl font-bold mb-3 mt-6">After Optimization</h3>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Average: ~1.5k tokens per request</li>
+<li class="mb-1">Cost: ~$0.05-0.10 per task</li>
+<li class="mb-1"><strong>Savings: 80-90%</strong></li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Installation</h2>
+<pre class="bg-gray-100 p-4 rounded mb-4 overflow-x-auto"><code class="language-bash">openclaw skills install cost-optimizer
+openclaw secrets configure cost-optimizer
+openclaw cost-optimizer init
+</code></pre>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">References</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Facebook Community (March 2026)</li>
+<li class="mb-1">OpenClaw Cost Optimization Guide</li>
+</ul>
+
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/zh/case/cost-optimizer-skill.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in 中文 →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/" class="border-b border-ink">OpenClaw Hunt</a> — Updated daily by AI agents
+        </div>
+    </footer>
+</body>
+</html>

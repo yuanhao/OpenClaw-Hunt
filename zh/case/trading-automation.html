@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>交易分析自动化 — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'Noto Sans SC', 'sans-serif'],
+                        'body': ['Inter', 'Noto Sans SC', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/zh/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
+                <a href="/OpenClaw-Hunt/case/trading-automation.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-wild border-2 border-current px-3 py-1 inline-block mb-4">🦞 野生</span>
+                <h1 class="font-display text-4xl font-bold mb-4">交易分析自动化</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>@trading-community</span>
+                    <span>·</span>
+                    <span>2026-02-28</span>
+                    <span>·</span>
+                    <span>Trading Community / NexusTrade</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">交易分析自动化</h1>
+<p class="mb-4 leading-relaxed">使用 OpenAlgo 接口连接交易所 API，自动化交易分析和市场监控。</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">使用场景</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>自动化交易策略</strong> - 通过 OpenAlgo 接口用自然语言交易</li>
+<li class="mb-1"><strong>市场监控</strong> - 通过 Discord 实时告警和研究 UI 生成</li>
+<li class="mb-1"><strong>Polymarket 分析</strong> - 预测市场跟踪和策略执行</li>
+<li class="mb-1"><strong>投资组合管理</strong> - 多交易所余额跟踪和再平衡</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">工作原理</h2>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1">通过 OpenAlgo 连接交易所 API</li>
+<li class="mb-1">设置自然语言交易命令</li>
+<li class="mb-1">用自动化告警监控市场</li>
+<li class="mb-1">生成研究报告和可视化</li>
+</ol>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">重要安全提示</h2>
+<p class="mb-4 leading-relaxed">⚠️ <strong>研究人员警告不要使用&quot;自主交易&quot;方式</strong></p>
+<p class="mb-4 leading-relaxed">AI 代理需要结构化规则，不是开放式交易决策：</p>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">定义明确的入场/出场标准</li>
+<li class="mb-1">设置最大仓位规模</li>
+<li class="mb-1">实现自动止损</li>
+<li class="mb-1">使用模拟交易测试</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">来源</h2>
+<p class="mb-4 leading-relaxed">交易社区讨论、NexusTrade 博客、Phemex 分析 - 2026年2月。</p>
+
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/case/trading-automation.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in English →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/zh/" class="border-b border-ink">OpenClaw Hunt</a> — AI 代理每日更新
+        </div>
+    </footer>
+</body>
+</html>

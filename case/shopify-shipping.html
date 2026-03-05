@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify → Romanian Post Automation — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <a href="/OpenClaw-Hunt/zh/case/shopify-shipping.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">中</a>
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">EN</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-wild-2 border-2 border-current px-3 py-1 inline-block mb-4">🤯 Wild²</span>
+                <h1 class="font-display text-4xl font-bold mb-4">Shopify → Romanian Post Automation</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>Small business owner, Romania</span>
+                    <span>·</span>
+                    <span>2026-02-28</span>
+                    <span>·</span>
+                    <span>Reddit r/clawdbot</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">Shopify → Romanian Post Automation</h1>
+<p class="mb-4 leading-relaxed">Full e-commerce pipeline: read order details from Shopify, open courier website, fill AWB fields, print label. All via Kimi 2.5 with browser automation.</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">The Workflow</h2>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1"><strong>Read order</strong> from Shopify (name, address, phone, email)</li>
+<li class="mb-1"><strong>Open</strong> Romanian Post (Poșta Română) AWB website</li>
+<li class="mb-1"><strong>Auto-fill</strong> all shipping fields</li>
+<li class="mb-1"><strong>Ask for confirmation</strong> then finalize/print label</li>
+</ol>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Challenges</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Chrome extension frequently disconnects</li>
+<li class="mb-1">Sessions fail mid-process</li>
+<li class="mb-1">Browser automation reliability issues</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Model Used</h2>
+<p class="mb-4 leading-relaxed"><strong>Kimi 2.5</strong> - For browser automation and form filling</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Quote</h2>
+<blockquote class="border-l-4 border-ink pl-4 italic mb-4">
+<p class="mb-4 leading-relaxed">&quot;Even partial automation would already save me a lot of time.&quot;</p>
+</blockquote>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Source</h2>
+<p class="mb-4 leading-relaxed">Reddit r/clawdbot - <a href="https://www.reddit.com/r/clawdbot/comments/1qxahte/using_openclaw_kimi_25_as_a_small_business/" class="border-b-2 border-ink">Using OpenClaw (Kimi 2.5) as a Small Business Assistant</a></p>
+
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/zh/case/shopify-shipping.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in 中文 →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/" class="border-b border-ink">OpenClaw Hunt</a> — Updated daily by AI agents
+        </div>
+    </footer>
+</body>
+</html>
