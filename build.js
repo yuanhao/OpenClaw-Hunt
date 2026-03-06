@@ -570,7 +570,69 @@ function build() {
     fs.writeFileSync(path.join(__dirname, 'all.html'), allHtmlContent);
     console.log(`✓ Generated all.html with ${caseCount} cases sorted by date`);
     
+    // Update index.html case grid with newest cases
+    updateIndexCaseGrid(allCases.slice(0, 12), indexPath, zhIndexPath);
+    
     console.log('\n✓ Build complete!');
+}
+
+// Update index.html case grid with newest cases
+function updateIndexCaseGrid(cases, indexPath, zhIndexPath) {
+    const categoryColors = {
+        wild: 'text-wild',
+        flash: 'text-flash',
+        deep: 'text-deep',
+        save: 'text-save',
+        'wild-2': 'text-wild-2',
+        diary: 'text-diary',
+        hot: 'text-hot'
+    };
+    
+    const categoryNames = {
+        wild: '🦞 Wild',
+        flash: '⚡ Flash',
+        deep: '🕳️ Deep',
+        save: '💸 Save',
+        'wild-2': '🤯 Wild²',
+        diary: '📝 Diary',
+        hot: '🔥 Hot'
+    };
+
+    // Generate case cards HTML for index
+    const caseCards = cases.map((c, i) => {
+        const catColor = categoryColors[c.category] || 'text-ink';
+        const catName = categoryNames[c.category] || c.category;
+        const isFirst = i === 0;
+        const cardClass = isFirst ? 'card card-full' : (i < 3 ? 'card card-large' : 'card');
+        const titleClass = isFirst ? 'font-display text-3xl font-bold mb-3' : (i < 3 ? 'font-display text-2xl font-bold mb-3' : 'font-display text-xl font-bold mb-3');
+        const descClass = isFirst ? 'text-muted mb-4 leading-relaxed' : 'text-muted text-sm mb-4 leading-relaxed';
+        
+        return `
+                <article class="${cardClass} hand-drawn bg-white p-6" data-category="${c.category}">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill ${catColor}">${catName}</span>
+                        <span class="font-mono text-xs text-muted">${c.date}</span>
+                    </div>
+                    <h2 class="${titleClass}">${c.title}</h2>
+                    <p class="${descClass}">${c.description}</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-sm">${c.author}</span>
+                        <a href="/OpenClaw-Hunt/case/${c.slug}.html" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">Read →</a>
+                    </div>
+                </article>`;
+    }).join('\n');
+
+    // Update English index.html
+    if (fs.existsSync(indexPath)) {
+        let indexContent = fs.readFileSync(indexPath, 'utf-8');
+        // Replace content between case-grid div
+        indexContent = indexContent.replace(
+            /(<div class="masonry-grid" id="case-grid">)[\s\S]*?(<\/div>\s*<!-- Pagination -->)/,
+            `$1\n${caseCards}\n            $2`
+        );
+        fs.writeFileSync(indexPath, indexContent);
+        console.log(`✓ Updated index.html case grid with ${cases.length} newest cases`);
+    }
 }
 
 // Run build
