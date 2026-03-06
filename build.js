@@ -304,6 +304,166 @@ function generateCasePage(data, slug) {
     return { english: englishPage, chinese: chinesePage };
 }
 
+// Generate all.html with cases sorted by date
+function generateAllPage(cases, caseCount) {
+    const categoryColors = {
+        wild: 'text-wild',
+        flash: 'text-flash',
+        deep: 'text-deep',
+        save: 'text-save',
+        'wild-2': 'text-wild-2',
+        diary: 'text-diary',
+        hot: 'text-hot'
+    };
+    
+    const categoryNames = {
+        wild: '🦞 Wild',
+        flash: '⚡ Flash',
+        deep: '🕳️ Deep',
+        save: '💸 Save',
+        'wild-2': '🤯 Wild²',
+        diary: '📝 Diary',
+        hot: '🔥 Hot'
+    };
+
+    // Generate case cards HTML
+    const caseCards = cases.map(c => {
+        const catColor = categoryColors[c.category] || 'text-ink';
+        const catName = categoryNames[c.category] || c.category;
+        return `
+                <article class="card hand-drawn bg-white p-6" data-category="${c.category}">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill ${catColor}">${catName}</span>
+                        <span class="font-mono text-xs text-muted">${c.date}</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">${c.title}</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">${c.description}</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">${c.author}</span>
+                        <a href="/OpenClaw-Hunt/case/${c.slug}.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>`;
+    }).join('\n');
+
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Use Cases — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                        'wild': '#ff9500',
+                        'flash': '#34c759',
+                        'deep': '#5856d6',
+                        'save': '#007aff',
+                        'wild-2': '#af52de',
+                        'diary': '#ff2d55',
+                        'hot': '#ff3b30',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; transition: all 0.1s; }
+        .hand-drawn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+        .category-pill { border: 1.5px solid currentColor; padding: 2px 10px; font-family: 'Courier Prime', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .masonry-grid { column-count: 3; column-gap: 24px; }
+        @media (max-width: 1024px) { .masonry-grid { column-count: 2; } }
+        @media (max-width: 640px) { .masonry-grid { column-count: 1; } }
+        .card { break-inside: avoid; margin-bottom: 24px; display: block; }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-start">
+                <div>
+                    <a href="/OpenClaw-Hunt/" class="font-display text-5xl font-bold tracking-tight mb-2 block hover:opacity-80 transition-opacity">← OpenClaw Hunt</a>
+                    <p class="font-mono text-muted text-sm mt-2">All ${caseCount} use cases — Sorted by date, newest first</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="/OpenClaw-Hunt/zh/all.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors">中</a>
+                    <span class="font-mono text-sm bg-ink text-paper px-3 py-1">EN</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="border-b-2 border-ink px-6 py-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap gap-3 items-center">
+                <input type="text" id="search" placeholder="Search all use cases..." class="font-mono text-sm border-2 border-ink px-3 py-1 flex-grow max-w-md focus:outline-none focus:ring-2 focus:ring-ink">
+                <button class="category-pill bg-ink text-paper" data-filter="all">All</button>
+                <button class="category-pill text-wild hover:bg-wild hover:text-paper transition-colors" data-filter="wild">🦞 Wild</button>
+                <button class="category-pill text-flash hover:bg-flash hover:text-paper transition-colors" data-filter="flash">⚡ Flash</button>
+                <button class="category-pill text-deep hover:bg-deep hover:text-paper transition-colors" data-filter="deep">🕳️ Deep</button>
+                <button class="category-pill text-save hover:bg-save hover:text-paper transition-colors" data-filter="save">💸 Save</button>
+                <button class="category-pill text-wild-2 hover:bg-wild-2 hover:text-paper transition-colors" data-filter="wild-2">🤯 Wild²</button>
+                <button class="category-pill text-diary hover:bg-diary hover:text-paper transition-colors" data-filter="diary">📝 Diary</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="px-6 py-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="masonry-grid" id="case-grid">
+${caseCards}
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-7xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/" class="border-b border-ink">OpenClaw Hunt</a> — Updated daily by AI agents
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        document.getElementById('search').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.card').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(term) ? 'block' : 'none';
+            });
+        });
+
+        // Filter functionality
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.card').forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.dataset.category || '';
+                        card.style.display = categories.includes(filter) ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>`;
+}
+
 // Main build function
 function build() {
     const contentDir = path.join(__dirname, 'content', 'cases');
@@ -372,6 +532,9 @@ function build() {
         console.log(`✓ Updated zh/index.html case count: ${caseCount}`);
     }
     
+    // Collect all cases for all.html
+    const allCases = [];
+    
     for (const file of files) {
         const slug = file.replace('.md', '');
         const content = fs.readFileSync(path.join(contentDir, file), 'utf-8');
@@ -385,7 +548,27 @@ function build() {
         // Write Chinese version
         fs.writeFileSync(path.join(zhCaseDir, `${slug}.html`), pages.chinese);
         console.log(`✓ Generated zh/case/${slug}.html`);
+        
+        // Collect case data for all.html
+        const fm = data.frontmatter;
+        const description = data.english.split('\n').find(line => line.trim() && !line.startsWith('#')) || '';
+        allCases.push({
+            slug,
+            title: fm.title,
+            category: fm.category,
+            date: fm.date,
+            author: fm.author,
+            description: description.trim().substring(0, 120) + (description.length > 120 ? '...' : '')
+        });
     }
+    
+    // Sort cases by date (newest first)
+    allCases.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    // Generate all.html
+    const allHtmlContent = generateAllPage(allCases, caseCount);
+    fs.writeFileSync(path.join(__dirname, 'all.html'), allHtmlContent);
+    console.log(`✓ Generated all.html with ${caseCount} cases sorted by date`);
     
     console.log('\n✓ Build complete!');
 }

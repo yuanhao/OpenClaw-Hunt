@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Use Cases — OpenClaw Hunt</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -49,7 +49,7 @@
             <div class="flex justify-between items-start">
                 <div>
                     <a href="/OpenClaw-Hunt/" class="font-display text-5xl font-bold tracking-tight mb-2 block hover:opacity-80 transition-opacity">← OpenClaw Hunt</a>
-                    <p class="font-mono text-muted text-sm mt-2">All 89 use cases — Search, filter, explore</p>
+                    <p class="font-mono text-muted text-sm mt-2">All 107 use cases — Sorted by date, newest first</p>
                 </div>
                 <div class="flex items-center gap-4">
                     <a href="/OpenClaw-Hunt/zh/all.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors">中</a>
@@ -68,6 +68,8 @@
                 <button class="category-pill text-flash hover:bg-flash hover:text-paper transition-colors" data-filter="flash">⚡ Flash</button>
                 <button class="category-pill text-deep hover:bg-deep hover:text-paper transition-colors" data-filter="deep">🕳️ Deep</button>
                 <button class="category-pill text-save hover:bg-save hover:text-paper transition-colors" data-filter="save">💸 Save</button>
+                <button class="category-pill text-wild-2 hover:bg-wild-2 hover:text-paper transition-colors" data-filter="wild-2">🤯 Wild²</button>
+                <button class="category-pill text-diary hover:bg-diary hover:text-paper transition-colors" data-filter="diary">📝 Diary</button>
             </div>
         </div>
     </nav>
@@ -76,10 +78,244 @@
         <div class="max-w-7xl mx-auto">
             <div class="masonry-grid" id="case-grid">
 
+                <article class="card hand-drawn bg-white p-6" data-category="flash">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-flash">⚡ Flash</span>
+                        <span class="font-mono text-xs text-muted">2026-03-06</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">AI Content Brainstorming Agent</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Automated content idea generation based on industry trends and competitor analysis.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@contabo-community</span>
+                        <a href="/OpenClaw-Hunt/case/ai-content-brainstorming.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-03-06</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Dependency Update Monitor</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Automated dependency monitoring with security vulnerability detection for DevOps teams.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@contabo-community</span>
+                        <a href="/OpenClaw-Hunt/case/dependency-update-monitor.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="deep">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-deep">🕳️ Deep</span>
+                        <span class="font-mono text-xs text-muted">2026-03-06</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Private Document Assistant with Ollama</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Self-hosted AI assistant for confidential document analysis without cloud exposure.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@privacy-focused-community</span>
+                        <a href="/OpenClaw-Hunt/case/private-document-assistant.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="business">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">business</span>
+                        <span class="font-mono text-xs text-muted">2026-03-05</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">22-Cron-Job One-Person AI Startup</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Complete one-person AI startup stack: Claude Opus for strategy/writing, Claude Sonnet for automation, all orchestrated t...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@mimosabot</span>
+                        <a href="/OpenClaw-Hunt/case/22-cron-startup.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="automation">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">automation</span>
+                        <span class="font-mono text-xs text-muted">2026-03-05</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">AI Car Negotiation Agent</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">A developer gave OpenClaw one job: buy him a car. The agent emailed multiple dealers, played them against each other, an...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@community</span>
+                        <a href="/OpenClaw-Hunt/case/ai-car-negotiation.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="productivity">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">productivity</span>
+                        <span class="font-mono text-xs text-muted">2026-03-05</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Donna" — AI Meeting Scheduler</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Named agent "Donna" is trained as an expert meeting scheduler. To book any meeting, you simply CC Donna in an email thre...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@BillDA</span>
+                        <a href="/OpenClaw-Hunt/case/donna-meeting-scheduler.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="productivity">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">productivity</span>
+                        <span class="font-mono text-xs text-muted">2026-03-05</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Interview Day Prep Agent</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Context-aware morning briefing: when OpenClaw detects a job interview on your calendar, it automatically researches the ...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@wes_sander</span>
+                        <a href="/OpenClaw-Hunt/case/interview-prep-agent.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="business">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">business</span>
+                        <span class="font-mono text-xs text-muted">2026-03-05</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Named Agent Business Stack (Popcorn, Edith, Sherlock)</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Three specialized named agents running in parallel: **Popcorn** = personal executive assistant (calendar, personal tasks...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@hey_yogini</span>
+                        <a href="/OpenClaw-Hunt/case/named-agent-stack.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="content">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">content</span>
+                        <span class="font-mono text-xs text-muted">2026-03-05</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Self-Evolving Content Standards</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">After 2 weeks running continuously, the agent built its own content quality scoring system — without being asked. Every ...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@witcheer</span>
+                        <a href="/OpenClaw-Hunt/case/self-evolving-standards.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="health">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">health</span>
+                        <span class="font-mono text-xs text-muted">2026-03-05</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Tesla Health Rerouting Agent</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Owner gave OpenClaw access to their email and Tesla, asked it to help them be healthier. The agent read a prescription e...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@Legendaryy</span>
+                        <a href="/OpenClaw-Hunt/case/tesla-health-rerouting.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="content">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">content</span>
+                        <span class="font-mono text-xs text-muted">2026-03-05</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">24/7 Video Content Repurposing Agent</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Fully autonomous video content pipeline: agent analyzes your long-form videos, finds the most viral moments, adds profes...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">@VadimStrizheus</span>
+                        <a href="/OpenClaw-Hunt/case/video-repurposing-agent.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="Productivity">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">Productivity</span>
+                        <span class="font-mono text-xs text-muted">2026-03-02</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Advanced Power User Setup</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">A comprehensive OpenClaw configuration demonstrating the platform's self-extensible architecture. The agent built most o...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">undefined</span>
+                        <a href="/OpenClaw-Hunt/case/advanced-power-user-setup.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="Security">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">Security</span>
+                        <span class="font-mono text-xs text-muted">2026-03-02</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">ClawJacked: Critical Local Agent Hijacking</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">CVE-2026-27004 (ClawJacked) is a critical vulnerability that allowed malicious websites to connect to locally running Op...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">undefined</span>
+                        <a href="/OpenClaw-Hunt/case/clawjacked-vulnerability.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="Infrastructure">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">Infrastructure</span>
+                        <span class="font-mono text-xs text-muted">2026-03-02</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">OpenClaw Cost Optimizer Skill</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">A community-created skill addressing one of the most common pain points in multi-provider AI agent setups: cost visibili...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">undefined</span>
+                        <a href="/OpenClaw-Hunt/case/cost-optimizer-skill.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="Development">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">Development</span>
+                        <span class="font-mono text-xs text-muted">2026-03-02</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Deterministic Multi-Agent Dev Pipeline</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">A fully deterministic code → review → test pipeline using OpenClaw's Lobster workflow engine with newly-contributed loop...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">undefined</span>
+                        <a href="/OpenClaw-Hunt/case/deterministic-dev-pipeline.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="Productivity">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">Productivity</span>
+                        <span class="font-mono text-xs text-muted">2026-03-02</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Multi-Agent Task Logging System</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">An innovative idea-to-decision pipeline using OpenClaw's multi-agent capabilities for autonomous overnight experimentati...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">undefined</span>
+                        <a href="/OpenClaw-Hunt/case/multi-agent-task-logging.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="Infrastructure">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">Infrastructure</span>
+                        <span class="font-mono text-xs text-muted">2026-03-02</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">OpenClaw 2026.2.23 Release Features</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Major release addressing multiple security vulnerabilities and introducing significant new features for secrets manageme...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">undefined</span>
+                        <a href="/OpenClaw-Hunt/case/openclaw-2026-2-23-release.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="Security">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-ink">Security</span>
+                        <span class="font-mono text-xs text-muted">2026-03-02</span>
+                    </div>
+                    <h2 class="font-display text-xl font-bold mb-3">Six New Critical Vulnerabilities Patched</h2>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Endor Labs security researchers disclosed six new vulnerabilities in OpenClaw in February 2026, highlighting the importa...</p>
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono text-xs">undefined</span>
+                        <a href="/OpenClaw-Hunt/case/six-new-vulnerabilities.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
+                    </div>
+                </article>
+
+                <article class="card hand-drawn bg-white p-6" data-category="deep">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="category-pill text-deep">🕳️ Deep</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">5AM Infrastructure Health Check</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Server monitoring before workday. Catch issues before your team wakes up.</p>
@@ -92,10 +328,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">7 Sub-Agent Night Parallel</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/7-sub-agent-night-parallel.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -105,10 +341,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Agent Skills Directory</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/agent-skills-directory.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -118,10 +354,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">API Security Tester</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/api-security-tester.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -131,10 +367,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Auto Social Media Posting</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/auto-social-posting.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -144,10 +380,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">AWS Credential Scanner</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/aws-credential-scanner.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -157,10 +393,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Bitcoin Inscription</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/bitcoin-inscription.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -170,10 +406,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Reddit r/clawdbot</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Wrote a Book Using AI Agents</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">Set up an autonomous multi-agent system that reads OpenClaw's source repo, gathers info from the web, and writes a full book about the platform. Zero human intervention after initial prompt.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Set up an autonomous multi-agent system that reads OpenClaw's source repo, gathers info from the web, and writes a full ...</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@openclaw-lover</span>
                         <a href="/OpenClaw-Hunt/case/book-writing-agents.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -183,10 +419,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Booking & Appointment Agent</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/booking-appointment-agent.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -196,10 +432,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Smart Calendar Reminder</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/calendar-smart-reminder.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -209,7 +445,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Community Showcase</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Car Negotiation Bot</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Agent scrapes dealer inventories, fills contact forms, plays dealers against each other with competing quotes.</p>
@@ -222,10 +458,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Chain Wallet Monitor</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/chain-wallet-monitor.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -235,10 +471,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="diary">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-diary">📝 Diary</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Cold Relationship Revival</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/cold-relationship-revival.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -248,7 +484,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">LinkedIn Showcase</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Content Sourcing Engine</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Automated newsletter research across Reddit, GitHub, YouTube, Discord, and blogs with multi-source aggregation.</p>
@@ -261,10 +497,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Cron Dashboard Status</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/cron-dashboard-status.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -274,10 +510,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Crypto Fortune Cookie</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/crypto-fortune-cookie.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -287,10 +523,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Customer Signal Scanner</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/customer-signal-scanner.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -300,7 +536,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Community Guide</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Daily Briefing in 5 Minutes</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Morning digest with weather, calendar, news, and priorities. Saves 30+ minutes daily.</p>
@@ -313,10 +549,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="diary">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-diary">📝 Diary</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Daily Learning Journal</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/daily-learning-journal.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -326,10 +562,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="diary">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-diary">📝 Diary</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Daily Self-Improvement Cron</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/daily-self-improvement-cron.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -339,10 +575,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Distributed Tracing Benchmark</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/distributed-tracing-benchmark.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -352,10 +588,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Email Auto-Classifier</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/email-auto-classifier.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -365,10 +601,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Email Auto-Sorter</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/email-auto-sorter.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -378,10 +614,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Email Newsletter to Podcast</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/email-newsletter-to-podcast.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -391,10 +627,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Email-to-Podcast Skill</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/email-to-podcast-skill.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -404,7 +640,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Email Newsletter to Podcast</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Turn newsletters into audio for your commute. Never miss important content because you're driving or exercising.</p>
@@ -417,7 +653,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Substack</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Email Triage at Scale</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Automatically categorize emails, draft replies, unsubscribe from newsletters, clear backlogs.</p>
@@ -430,10 +666,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">GitHub</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Autonomous Game Dev Pipeline</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">Full lifecycle management of educational game development — from backlog selection to implementation, registration, documentation, and git commit.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Full lifecycle management of educational game development — from backlog selection to implementation, registration, docu...</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@hesamsheikh</span>
                         <a href="/OpenClaw-Hunt/case/game-dev-pipeline.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -443,10 +679,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Git History Cleaner</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/git-history-cleaner.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -456,7 +692,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">GitHub Issue Prioritizer</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Sort issues by urgency using AI analysis of labels, comments, and activity patterns.</p>
@@ -469,10 +705,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">GitHub Stale Issue Cleanup</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/github-stale-issue-cleanup.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -482,10 +718,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Heartbeat State Monitor</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/heartbeat-state-monitor.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -495,10 +731,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">ChatPRD Interview</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">5 Agents for Homeschooling</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">Parent of 4 runs specialized agents for education, app building, and physical inventory tracking. Zero coding experience.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Parent of 4 runs specialized agents for education, app building, and physical inventory tracking. Zero coding experience...</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">Jesse Genet</span>
                         <a href="/OpenClaw-Hunt/case/homeschool-agents.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -508,10 +744,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Homework Tutor</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/homework-tutor.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -521,7 +757,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Instagram Story Manager</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Auto-post stories and manage engagement. Maintain consistent presence without manual work.</p>
@@ -534,10 +770,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Keychain Access Tester</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/keychain-access-tester.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -547,10 +783,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Knowledge Graph Rebuilder</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/knowledge-graph-rebuilder.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -560,10 +796,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="diary">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-diary">📝 Diary</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Life Memory Logger</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/life-memory-logger.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -573,10 +809,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Log Anomaly Detection</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/log-anomaly-detection.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -586,10 +822,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Medical Email to Podcast</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/medical-email-to-podcast.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -599,7 +835,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Meeting Notes Generator</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Paste raw notes, get structured minutes. Transform chaos into professional documentation.</p>
@@ -612,10 +848,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Moltbook Pattern Analysis</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/moltbook-pattern-analysis.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -625,7 +861,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Daily Morning Briefing</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Weather + calendar + news in one Telegram message. Start your day informed.</p>
@@ -638,10 +874,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Morning Digest Generator</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/morning-digest-generator.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -651,7 +887,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Awesome OpenClaw Use Cases</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Multi-Channel AI Customer Service</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Unify WhatsApp, Instagram, Email, and Google Reviews in one AI-powered inbox with 24/7 auto-responses.</p>
@@ -664,10 +900,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Multi-Channel Presence Sync</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/multi-channel-presence-sync.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -677,7 +913,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">GitHub</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">n8n Workflow Orchestration</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Combine OpenClaw as the conversational "brain" with n8n as the deterministic "execution engine."</p>
@@ -690,10 +926,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Network Latency Benchmark</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/network-latency-benchmark.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -703,10 +939,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">News Digest Aggregator</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/news-digest-aggregator.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -716,10 +952,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Night Documentation Fixer</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/night-documentation-fixer.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -729,7 +965,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Night Shell Alias Builder</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Create shortcuts from usage patterns. Your agent learns how you work and builds aliases to speed you up.</p>
@@ -742,10 +978,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="diary">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-diary">📝 Diary</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Night WhatsApp Revival</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/night-whatsapp-revival.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -755,10 +991,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Night Work ROI Tracker</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/night-work-roi-tracker.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -768,10 +1004,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Olympics Daily Briefing</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/olympics-daily-briefing.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -781,10 +1017,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">On-Chain Haiku Inscription</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/on-chain-haiku-inscription.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -794,10 +1030,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild-2">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild-2">🤯 Wild²</span>
-                        <span class="font-mono text-xs text-muted">GitHub</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">OpenPawz - Rust Alternative to OpenClaw</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">Open-source, local-first AI command center. High-performance Rust alternative to Zapier, n8n, and OpenClaw. Orchestrate 25k+ tools for $0 via Ollama using the Foreman Protocol & Librarian Method.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Open-source, local-first AI command center. High-performance Rust alternative to Zapier, n8n, and OpenClaw. Orchestrate ...</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@OpenPawz</span>
                         <a href="/OpenClaw-Hunt/case/openpawz-rust-alternative.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -807,7 +1043,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Community Guides</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Oracle Cloud Free Tier VPS Hosting</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Self-hosting OpenClaw on Oracle Cloud Free Tier for 24/7 agent operations at zero cost.</p>
@@ -820,10 +1056,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Personal CLI Toolkit</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/personal-cli-toolkit.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -833,10 +1069,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Polymarket Scanner</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/polymarket-scanner.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -846,10 +1082,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Price Comparison Shopper</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/price-comparison-shopper.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -859,10 +1095,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Pump.fun Scanner</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/pump-fun-scanner.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -872,7 +1108,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">VULNEX / Simon Roses</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Raspberry Pi 5 Security Operations</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Running OpenClaw on Raspberry Pi 5 for 24/7 autonomous security operations with production-grade hardening.</p>
@@ -885,10 +1121,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Reading List Curator</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/reading-list-curator.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -898,7 +1134,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">RSS News Aggregator</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Multi-source news with deduplication. One digest, all your sources.</p>
@@ -911,10 +1147,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Safe Operations Ledger</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/safe-operations-ledger.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -924,7 +1160,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Awesome OpenClaw Use Cases</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Second Brain with Semantic Search</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Text anything to your bot to remember it, then search through all your memories with vector-powered semantic search.</p>
@@ -937,10 +1173,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Security CTF Curriculum</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/security-ctf-curriculum.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -950,10 +1186,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild-2">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild-2">🤯 Wild²</span>
-                        <span class="font-mono text-xs text-muted">Reddit r/clawdbot</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Shopify → Romanian Post Automation</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">Full e-commerce pipeline: read order details from Shopify, open courier website, fill AWB fields, print label. All via Kimi 2.5 with browser automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Full e-commerce pipeline: read order details from Shopify, open courier website, fill AWB fields, print label. All via K...</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">Small business owner, Romania</span>
                         <a href="/OpenClaw-Hunt/case/shopify-shipping.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -963,10 +1199,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Skill Preflight Checker</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/skill-preflight-checker.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -976,10 +1212,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Skill Supply Chain Audit</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/skill-supply-chain-audit.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -989,7 +1225,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Smart Home via Telegram</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Control lights, thermostat, locks by chat. Natural language home automation.</p>
@@ -1002,10 +1238,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Social Media Monitor</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/social-media-monitor.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1015,7 +1251,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">SSH Key Scanner</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Find exposed SSH keys. Security audit automation for your repositories.</p>
@@ -1028,10 +1264,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Swift Logger Package</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/swift-logger-package.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1041,7 +1277,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Three-Tier Memory System</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Long-term + daily + project layers. Organized knowledge that scales.</p>
@@ -1054,7 +1290,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Token Usage Optimizer</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Reduce API costs. Smart context management for cheaper AI operations.</p>
@@ -1067,10 +1303,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="save">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-save">💸 Save</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Token Usage Optimizer</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/token-usage-optimizer.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1080,7 +1316,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Trading Community / NexusTrade</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Trading Analysis Automation</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Using OpenAlgo interface for exchange API connections to automate trading analysis and market monitoring.</p>
@@ -1093,10 +1329,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Trading Bot Monitor</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/trading-bot-monitor.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1106,7 +1342,7 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Travel Itinerary Planner</h2>
                     <p class="text-muted text-sm mb-4 leading-relaxed">Complete day-by-day trip plan from one message. Just tell it where and when.</p>
@@ -1119,10 +1355,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Trello Board Organizer</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/trello-board-organizer.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1132,10 +1368,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Trello/Notion Organizer</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/trello-notion-organizer.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1145,10 +1381,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">V4 LP Auto-Compounding</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/v4-lp-auto-compounding.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1158,10 +1394,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">GitHub</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Wazuh SOC Autopilot with OpenClaw</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">Autonomous SOC Security Operations Center layer for Wazuh using OpenClaw agents with MCP. Auto-triage alerts, correlate incidents, generate response plans with human-in-the-loop approval.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Autonomous SOC (Security Operations Center) layer for Wazuh using OpenClaw agents with MCP. Auto-triage alerts, correlat...</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@gensecaihq</span>
                         <a href="/OpenClaw-Hunt/case/wazuh-soc-autopilot.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1171,10 +1407,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Weather Morning Report</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/weather-morning-report.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1184,10 +1420,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="flash">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-flash">⚡ Flash</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Weather Outfit Advisor</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/weather-outfit-advisor.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1197,10 +1433,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="diary">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-diary">📝 Diary</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Weekly Memory Archive</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/weekly-memory-archive.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1210,10 +1446,10 @@
                 <article class="card hand-drawn bg-white p-6" data-category="wild">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-wild">🦞 Wild</span>
-                        <span class="font-mono text-xs text-muted">Moltbook</span>
+                        <span class="font-mono text-xs text-muted">2026-02-28</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">X Profile Scraper</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">This use case demonstrates practical OpenClaw automation.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">Use case from Moltbook community collection.</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@moltbook-community</span>
                         <a href="/OpenClaw-Hunt/case/x-profile-scraper.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
@@ -1223,80 +1459,49 @@
                 <article class="card hand-drawn bg-white p-6" data-category="deep">
                     <div class="flex justify-between items-start mb-4">
                         <span class="category-pill text-deep">🕳️ Deep</span>
-                        <span class="font-mono text-xs text-muted">DEV Community</span>
+                        <span class="font-mono text-xs text-muted">2026-02-23</span>
                     </div>
                     <h2 class="font-display text-xl font-bold mb-3">Deterministic Multi-Agent Dev Pipeline</h2>
-                    <p class="text-muted text-sm mb-4 leading-relaxed">A fully deterministic code → review → test pipeline using OpenClaw's Lobster workflow engine with newly-contributed loop support.</p>
+                    <p class="text-muted text-sm mb-4 leading-relaxed">A fully deterministic code → review → test pipeline using OpenClaw's Lobster workflow engine with newly-contributed loop...</p>
                     <div class="flex justify-between items-center">
                         <span class="font-mono text-xs">@gustavogondim</span>
                         <a href="/OpenClaw-Hunt/case/deterministic-pipeline.html" class="font-mono text-sm border-b-2 border-ink">Read →</a>
                     </div>
                 </article>
             </div>
-            
-            <div class="mt-12 flex justify-center items-center gap-4" id="pagination">
-                <button id="prev-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-30">← Prev</button>
-                <span id="page-info" class="font-mono text-sm">Page 1</span>
-                <button id="next-page" class="font-mono text-sm border-2 border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors disabled:opacity-30">Next →</button>
-            </div>
         </div>
     </main>
 
     <footer class="border-t-2 border-ink px-6 py-8 mt-12">
         <div class="max-w-7xl mx-auto text-center font-mono text-sm text-muted">
-            <a href="https://github.com/yuanhao/OpenClaw-Hunt" class="border-b border-ink">GitHub</a> — Updated daily by AI agents
+            <a href="/OpenClaw-Hunt/" class="border-b border-ink">OpenClaw Hunt</a> — Updated daily by AI agents
         </div>
     </footer>
 
     <script>
-        const cards = document.querySelectorAll('.card');
-        const searchInput = document.getElementById('search');
-        const filterButtons = document.querySelectorAll('[data-filter]');
-        let currentPage = 1;
-        const cardsPerPage = 24;
-        let filteredCards = Array.from(cards);
-
-        function updateFilteredCards() {
-            const term = (searchInput.value || '').toLowerCase();
-            const activeFilter = document.querySelector('[data-filter].bg-ink')?.dataset.filter || 'all';
-            
-            filteredCards = Array.from(cards).filter(c => {
-                const matchesSearch = !term || c.textContent.toLowerCase().includes(term);
-                const matchesFilter = activeFilter === 'all' || (c.dataset.category || '').includes(activeFilter);
-                return matchesSearch && matchesFilter;
-            });
-            currentPage = 1;
-            showPage(1);
-        }
-
-        function showPage(page) {
-            const totalPages = Math.ceil(filteredCards.length / cardsPerPage) || 1;
-            const start = (page - 1) * cardsPerPage;
-            const end = start + cardsPerPage;
-            
-            cards.forEach(card => card.style.display = 'none');
-            filteredCards.forEach((card, index) => {
-                if (index >= start && index < end) card.style.display = 'block';
-            });
-            
-            document.getElementById('page-info').textContent = 'Page ' + page + ' of  ' + totalPages;
-            document.getElementById('prev-page').disabled = page === 1;
-            document.getElementById('next-page').disabled = page >= totalPages;
-        }
-
-        searchInput.addEventListener('input', updateFilteredCards);
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterButtons.forEach(b => b.classList.remove('bg-ink', 'text-paper'));
-                btn.classList.add('bg-ink', 'text-paper');
-                setTimeout(updateFilteredCards, 0);
+        // Search functionality
+        document.getElementById('search').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.card').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(term) ? 'block' : 'none';
             });
         });
 
-        document.getElementById('prev-page').addEventListener('click', () => { if (currentPage > 1) { currentPage--; showPage(currentPage); }});
-        document.getElementById('next-page').addEventListener('click', () => { if (currentPage < Math.ceil(filteredCards.length / cardsPerPage)) { currentPage++; showPage(currentPage); }});
-
-        updateFilteredCards();
+        // Filter functionality
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.card').forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.dataset.category || '';
+                        card.style.display = categories.includes(filter) ? 'block' : 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
