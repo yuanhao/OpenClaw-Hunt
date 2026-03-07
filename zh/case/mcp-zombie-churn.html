@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过 Mixpanel MCP 检测僵尸客户流失 — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'Noto Sans SC', 'sans-serif'],
+                        'body': ['Inter', 'Noto Sans SC', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/zh/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
+                <a href="/OpenClaw-Hunt/case/mcp-zombie-churn.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-ink border-2 border-current px-3 py-1 inline-block mb-4">business</span>
+                <h1 class="font-display text-4xl font-bold mb-4">通过 Mixpanel MCP 检测僵尸客户流失</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>@CamiloSilvaC</span>
+                    <span>·</span>
+                    <span>2026-03-08</span>
+                    <span>·</span>
+                    <span>Community (X/Twitter)</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">通过 Mixpanel MCP 检测僵尸客户流失</h1>
+<p class="mb-4 leading-relaxed">将 Mixpanel MCP 直接接入 OpenClaw：自定义技能读取行为模式而非流量指标，在客户流失前捕捉风险客户。</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">问题</h2>
+<p class="mb-4 leading-relaxed">像 Mixpanel 这样的传统分析工具基于事件流量将客户标记为&quot;健康&quot;。但流量不等于价值——一个产生大量低价值事件却忽视核心功能的客户实际上是等待流失的&quot;僵尸&quot;账户。</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">解决方案</h2>
+<p class="mb-4 leading-relaxed">OpenClaw 通过 MCP（模型上下文协议）连接到 Mixpanel，分析行为模式而非原始指标：</p>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>检测僵尸账户</strong>：客户&quot;100% 垃圾事件 + 零核心功能&quot;使用</li>
+<li class="mb-1"><strong>主动预警</strong>：每周一发送&quot;拯救这些账户&quot;列表</li>
+<li class="mb-1"><strong>当日干预</strong>：代理在标记当天就拯救了账户</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">工作原理</h2>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1"><strong>Mixpanel MCP 集成</strong>：自定义技能读取行为事件流</li>
+<li class="mb-1"><strong>模式分析</strong>：识别高流量但低功能采用的账户</li>
+<li class="mb-1"><strong>风险评分</strong>：标记显示流失前行为模式的客户</li>
+<li class="mb-1"><strong>每周摘要</strong>：每周一早发送风险账户的可操作列表</li>
+</ol>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">影响</h2>
+<p class="mb-4 leading-relaxed">对于 SaaS 运营商，这将不可见的流失转变为积极的周一早晨例行公事。不是在流失发生后才发现，而是提前获得需要拯救的账户列表。</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">为什么重要</h2>
+<p class="mb-4 leading-relaxed">标准 Mixpanel 评分显示该客户&quot;100% 健康&quot;——但 OpenClaw 代理捕捉到了流量指标遗漏的行为衰减。这就是被动客户成功与主动客户成功之间的区别。</p>
+
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/case/mcp-zombie-churn.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in English →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/zh/" class="border-b border-ink">OpenClaw Hunt</a> — AI 代理每日更新
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Global Catalog API + Image Search in 60 Seconds — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <a href="/OpenClaw-Hunt/zh/case/shopify-catalog-image-search.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">中</a>
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">EN</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-flash border-2 border-current px-3 py-1 inline-block mb-4">⚡ Flash</span>
+                <h1 class="font-display text-4xl font-bold mb-4">Shopify Global Catalog API + Image Search in 60 Seconds</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>@gilgNYC</span>
+                    <span>·</span>
+                    <span>2026-03-08</span>
+                    <span>·</span>
+                    <span>Community (X/Twitter)</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">Shopify Global Catalog API + Image Search in 60 Seconds</h1>
+<p class="mb-4 leading-relaxed">Asked OpenClaw (powered by codex-5.1-mini) to connect to Shopify&#39;s global product catalog API and build image-based product search. <strong>Fully functional in 60 seconds.</strong></p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">The Comparison</h2>
+<table class="w-full border-collapse mb-6">
+<thead>
+<tr>
+<th class="border-b-2 border-ink py-2 px-3 text-left font-bold">Approach</th>
+<th class="border-b-2 border-ink py-2 px-3 text-left font-bold">Time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td class="border-b border-gray-300 py-2 px-3">Previous: Mobile app built in Replit</td>
+<td class="border-b border-gray-300 py-2 px-3">2+ hours</td>
+</tr>
+<tr>
+<td class="border-b border-gray-300 py-2 px-3">OpenClaw + codex-5.1-mini</td>
+<td class="border-b border-gray-300 py-2 px-3"><strong>60 seconds</strong></td>
+</tr>
+</tbody></table>
+<p class="mb-4 leading-relaxed">Quote: <em>&quot;Do we even need mobile apps anymore?&quot;</em></p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">What Was Built</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>Shopify Catalog API Integration</strong>: Connected to Shopify&#39;s global product catalog</li>
+<li class="mb-1"><strong>Image-Based Search</strong>: Upload an image, find similar products</li>
+<li class="mb-1"><strong>Full API Wiring</strong>: Natural language to working integration</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">The Meta-Insight</h2>
+<p class="mb-4 leading-relaxed">Natural language API wiring via AI agents is compressing what used to require developer sprint cycles into conversation-length tasks. First documented Shopify Catalog API integration via OpenClaw.</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">How It Works</h2>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1"><strong>Prompt</strong>: &quot;Connect to Shopify&#39;s global product catalog API and build image-based product search&quot;</li>
+<li class="mb-1"><strong>Agent Action</strong>: <ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Researched Shopify Catalog API documentation</li>
+<li class="mb-1">Generated authentication code</li>
+<li class="mb-1">Built image upload and search endpoints</li>
+<li class="mb-1">Created matching algorithm</li>
+</ul>
+</li>
+<li class="mb-1"><strong>Result</strong>: Fully functional product search in under a minute</li>
+</ol>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Why This Matters</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>Speed</strong>: From hours to seconds</li>
+<li class="mb-1"><strong>Accessibility</strong>: No deep API knowledge required</li>
+<li class="mb-1"><strong>Iteration</strong>: Test ideas instantly without engineering overhead</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">Source</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">Original post by @gilgNYC (18 likes)</li>
+<li class="mb-1">February 20, 2026</li>
+</ul>
+
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/zh/case/shopify-catalog-image-search.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in 中文 →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/" class="border-b border-ink">OpenClaw Hunt</a> — Updated daily by AI agents
+        </div>
+    </footer>
+</body>
+</html>

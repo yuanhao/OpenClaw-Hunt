@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>销售通话转内容引擎与痛点评分 — OpenClaw Hunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=Courier+Prime&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['Space Grotesk', 'Noto Sans SC', 'sans-serif'],
+                        'body': ['Inter', 'Noto Sans SC', 'sans-serif'],
+                        'mono': ['Courier Prime', 'monospace'],
+                    },
+                    colors: {
+                        'paper': '#fafaf8',
+                        'ink': '#1a1a1a',
+                        'accent': '#ff3b30',
+                        'muted': '#6b6b6b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hand-drawn { border: 2px solid #1a1a1a; box-shadow: 3px 3px 0 #1a1a1a; }
+        .scan-line { background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); }
+    </style>
+</head>
+<body class="bg-paper text-ink font-body scan-line min-h-screen">
+    <header class="border-b-2 border-ink px-6 py-6">
+        <div class="max-w-3xl mx-auto flex justify-between items-center">
+            <a href="/OpenClaw-Hunt/zh/" class="font-display text-2xl font-bold">← OpenClaw Hunt</a>
+            <div class="flex items-center gap-3">
+                <span class="font-mono text-sm bg-ink text-paper px-3 py-1">中</span>
+                <a href="/OpenClaw-Hunt/case/sales-call-content-engine.html" class="font-mono text-sm border-2 border-ink px-3 py-1 hover:bg-ink hover:text-paper">EN</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 py-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-sm text-ink border-2 border-current px-3 py-1 inline-block mb-4">content</span>
+                <h1 class="font-display text-4xl font-bold mb-4">销售通话转内容引擎与痛点评分</h1>
+                <div class="flex gap-4 font-mono text-sm text-muted">
+                    <span>@CamiloSilvaC</span>
+                    <span>·</span>
+                    <span>2026-03-08</span>
+                    <span>·</span>
+                    <span>Community (X/Twitter)</span>
+                </div>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <h1 class="font-display text-3xl font-bold mb-4 mt-6">销售通话转内容引擎与痛点评分</h1>
+<p class="mb-4 leading-relaxed">来自 SaaS 构建者的 OpenClaw 工作流系列。将销售情报自动转化为营销燃料。</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">工作流程</h2>
+<p class="mb-4 leading-relaxed"><strong>流程：</strong></p>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1">销售团队与入站潜在客户通话</li>
+<li class="mb-1">OpenClaw 工作代理处理转录，提取提到的每个痛点并按频率/强度评分</li>
+<li class="mb-1">最高分的痛点自动成为本周的内容简报</li>
+</ol>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">神奇之处</h2>
+<p class="mb-4 leading-relaxed">潜在买家提出的确切反对意见成为吸引更多同类买家的帖子、邮件和文章。销售情报自动成为营销燃料。</p>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">工作原理</h2>
+<ol class="list-decimal ml-6 mb-4">
+<li class="mb-1"><strong>通话转录</strong>：销售通话自动转录</li>
+<li class="mb-1"><strong>痛点提取</strong>：OpenClaw 分析转录并识别提到的每个痛点</li>
+<li class="mb-1"><strong>痛点评分</strong>：每个痛点按以下标准评分：<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>频率</strong>：出现的频率</li>
+<li class="mb-1"><strong>强度</strong>：表达的强烈程度</li>
+<li class="mb-1"><strong>紧迫性</strong>：潜在客户提到的时间线</li>
+</ul>
+</li>
+<li class="mb-1"><strong>内容简报生成</strong>：得分最高的痛点成为本周的内容日历</li>
+</ol>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">示例输出</h2>
+<p class="mb-4 leading-relaxed"><strong>2026年2月20日那周：</strong></p>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1">痛点：&quot;集成时间太长&quot;（得分：9.2/10）
+→ 内容：&quot;[产品] 的5分钟集成指南&quot;</li>
+<li class="mb-1">痛点：&quot;无法向老板证明成本合理&quot;（得分：8.7/10）
+→ 内容：&quot;ROI计算器：如何构建你的商业案例&quot;</li>
+<li class="mb-1">痛点：&quot;担心数据安全&quot;（得分：8.4/10）
+→ 内容：&quot;我们的安全白皮书：你的IT团队需要知道的内容&quot;</li>
+</ul>
+<h2 class="font-display text-2xl font-bold mb-3 mt-8">为什么有效</h2>
+<ul class="list-disc ml-6 mb-4">
+<li class="mb-1"><strong>零猜测</strong>：内容主题来自实际的潜在客户对话</li>
+<li class="mb-1"><strong>完美对齐</strong>：营销直接针对买家反对意见</li>
+<li class="mb-1"><strong>复利效应</strong>：每篇内容都解决销售过程中的实际摩擦</li>
+</ul>
+
+            </article>
+
+            <div class="mt-12 pt-8 border-t-2 border-ink">
+                <a href="/OpenClaw-Hunt/case/sales-call-content-engine.html" class="font-mono text-lg border-b-2 border-ink">
+                    Read in English →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t-2 border-ink px-6 py-8 mt-12">
+        <div class="max-w-3xl mx-auto text-center font-mono text-sm text-muted">
+            <a href="/OpenClaw-Hunt/zh/" class="border-b border-ink">OpenClaw Hunt</a> — AI 代理每日更新
+        </div>
+    </footer>
+</body>
+</html>
