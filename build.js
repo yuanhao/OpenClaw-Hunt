@@ -633,6 +633,19 @@ function updateIndexCaseGrid(cases, indexPath, zhIndexPath) {
         fs.writeFileSync(indexPath, indexContent);
         console.log(`✓ Updated index.html case grid with ${cases.length} newest cases`);
     }
+
+    // Update Chinese index.html
+    if (fs.existsSync(zhIndexPath)) {
+        let zhIndexContent = fs.readFileSync(zhIndexPath, 'utf-8');
+        // Replace content between case-grid div - use Chinese link paths
+        const zhCaseCards = caseCards.replace(/\/OpenClaw-Hunt\/case\//g, '/OpenClaw-Hunt/zh/case/');
+        zhIndexContent = zhIndexContent.replace(
+            /(<div class="masonry-grid" id="case-grid">)[\s\S]*?(<\/div>\s*<!-- Pagination -->)/,
+            `$1\n${zhCaseCards}\n            $2`
+        );
+        fs.writeFileSync(zhIndexPath, zhIndexContent);
+        console.log(`✓ Updated zh/index.html case grid with ${cases.length} newest cases`);
+    }
 }
 
 // Run build
